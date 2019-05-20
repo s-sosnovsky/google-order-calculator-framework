@@ -11,7 +11,7 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
     @Test
     public void sendTotalEstimateEmailNotification() throws InterruptedException {
 
-        tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
+        TenMinutesEmailHomePage tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
         tenMinutesEmailHomePage.open();
         String tenMinutesEmail = tenMinutesEmailHomePage.getTenMinutesEmail();
         tenMinutesEmailHomePage.switchToSecondTab();
