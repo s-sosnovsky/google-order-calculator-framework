@@ -18,8 +18,6 @@ public class CreateNewInstanceOrderTest extends CommonConditions{
         allProductsPage = googleCloudHomePage.open().clickExploreNewProductsButton();
         seePricingPage = allProductsPage.clickSeePricingButton();
         calculatorPage = seePricingPage.clickCaltulatorsButton();
-        calculatorPage = new CalculatorPage(driver);
-        calculatorPage.open();
         createSimpleOrder(calculatorPage);
 
         Assert.assertTrue(calculatorPage.getVMClassText().
