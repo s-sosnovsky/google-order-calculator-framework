@@ -16,7 +16,7 @@ public class SeePricingPage extends AbstractPage {
     private final static String PAGE_URL = "https://cloud.google.com/pricing/";
     private final Logger logger = LogManager.getRootLogger();
 
-    @FindBy(xpath = "//a[@track-name='pricingNav/calculators']")
+    @FindBy(xpath = "//a[contains(text(),'Calculators')]")
     private WebElement calculatorsButton;
 
     public SeePricingPage(WebDriver driver){
