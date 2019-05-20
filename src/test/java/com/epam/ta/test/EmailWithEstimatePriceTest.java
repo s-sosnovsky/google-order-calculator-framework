@@ -17,7 +17,22 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
         tenMinutesEmailHomePage.switchToSecondTab();
         CalculatorPage calculatorPage = new CalculatorPage(driver);
         calculatorPage.open();
-        createSimpleOrder(calculatorPage);
+        Order order = OrderCreator.withCredentialsFromProperty();
+        calculatorPage
+                .switchToOrderIFrame()
+                .setOrderCloudEngine(order.getCloudEngine())
+                .setNumberOfInstances(order.getNumberOfInstances())
+                .setOperationSystem(order.getOperationSystemType())
+                .setVmClass(order.getVmClassType())
+                .setInstanceType(order.getInstanceType())
+                .selectAddGpuCheckbox()
+                .setNumberOfGpu(order.getNumberOfGpu())
+                .selectGpuType(order.getGpuType())
+                .setLocalSsdType(order.getLocalSsdType())
+                .setDatacenterLocation(order.getDatacenterLocation())
+                .setCommitmentTerm(order.getCommitmentTerm())
+                .clickAddToEstimateButton();     
+
         String totalEstimateFromGoogleCalculator = calculatorPage.getTotalCostText();
         calculatorPage.clickEmailEstimateButton()
                 .setTenMinutesEmail(tenMinutesEmail)
