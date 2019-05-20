@@ -30,7 +30,7 @@ public class GoogleCloudHomePage extends AbstractPage {
     }
 
     public AllProductsPage clickExploreNewProductsButton() {
-        new WebDriverWait(driver,10).until(ExpectedConditions.
+        new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.
                 visibilityOfElementLocated(By.xpath("//div[@class='home-products__button']/a")));
         exploreAllProductsButton.click();
         logger.info("All Products page opened");
