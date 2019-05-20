@@ -13,7 +13,7 @@ public class CreateNewInstanceOrderTest extends CommonConditions{
 
     @Test
     public void estimateSimpleInstanceOrderPricePerMonth() throws InterruptedException {
-        Order order = OrderCreator.withCredentialsFromProperty();
+        order = OrderCreator.withCredentialsFromProperty();
         CalculatorPage calculatorPage = new CalculatorPage(driver);
         calculatorPage.open();
         calculatorPage
