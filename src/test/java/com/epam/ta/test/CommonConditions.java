@@ -28,7 +28,7 @@ public class CommonConditions {
     protected SeePricingPage seePricingPage;
     protected TenMinutesEmailHomePage tenMinutesEmailHomePage;
     protected TenMinutesReadEmailPage readEmailPage;
-    protected Order order;
+    protected Order order = OrderCreator.withCredentialsFromProperty();
 
     public CalculatorPage createSimpleOrder(CalculatorPage calculatorPage) throws InterruptedException {
         order = OrderCreator.withCredentialsFromProperty();
