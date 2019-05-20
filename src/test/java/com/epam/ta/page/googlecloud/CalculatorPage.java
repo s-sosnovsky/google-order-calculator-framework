@@ -149,7 +149,8 @@ public class CalculatorPage extends AbstractPage {
         return this;
     }
 
-    public CalculatorPage setInstanceType(String instanceTypeValue){
+     public CalculatorPage setInstanceType(String instanceTypeValue) throws InterruptedException {
+        Thread.sleep(3000);
         dropDownWaitForElementAndChooseOptionText(instanceTypeDropDown, instanceTypeOptionsList, instanceTypeValue);
         return this;
     }
