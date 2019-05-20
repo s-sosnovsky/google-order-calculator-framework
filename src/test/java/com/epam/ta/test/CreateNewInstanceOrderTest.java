@@ -14,7 +14,7 @@ public class CreateNewInstanceOrderTest extends CommonConditions{
     @Test
     public void estimateSimpleInstanceOrderPricePerMonth() throws InterruptedException {
 
-        calculatorPage = new CalculatorPage(driver);
+        CalculatorPage calculatorPage = new CalculatorPage(driver);
         calculatorPage.open();
         createSimpleOrder(calculatorPage);
 
