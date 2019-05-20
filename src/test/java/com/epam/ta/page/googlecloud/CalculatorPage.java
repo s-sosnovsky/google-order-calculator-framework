@@ -150,7 +150,7 @@ public class CalculatorPage extends AbstractPage {
     }
 
      public CalculatorPage setInstanceType(String instanceTypeValue) throws InterruptedException {
-        Thread.sleep(3000);
+        scrollToElement(instanceTypeDropDown);
         dropDownWaitForElementAndChooseOptionText(instanceTypeDropDown, instanceTypeOptionsList, instanceTypeValue);
         return this;
     }
@@ -241,6 +241,7 @@ public class CalculatorPage extends AbstractPage {
     }
 
   public CalculatorPage setTenMinutesEmail(String email) throws InterruptedException {
+        scrollToElement(emailValueField);
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(emailValueField));
         emailValueField.sendKeys(email);
         logger.info("Set 10 minutes email: " + email);
