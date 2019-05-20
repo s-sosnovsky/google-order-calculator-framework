@@ -241,7 +241,7 @@ public class CalculatorPage extends AbstractPage {
     }
 
   public CalculatorPage setTenMinutesEmail(String email) throws InterruptedException {
-        scrollToElement(emailValueField);
+        //scrollToElement(emailValueField);
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(emailValueField));
         emailValueField.sendKeys(email);
         logger.info("Set 10 minutes email: " + email);
@@ -250,8 +250,8 @@ public class CalculatorPage extends AbstractPage {
 
     public void clickSendEmailAddressButton() throws InterruptedException {
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS*2).until(ExpectedConditions.visibilityOf(sendEmailButton));
-        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,250)");
-        scrollToElement(emailValueField);
+        //((JavascriptExecutor)driver).executeScript("window.scrollBy(0,250)");
+        scrollToElement(sendEmailButton);
         sendEmailButton.click();
         logger.info("Email with estimated price sent");
     }
