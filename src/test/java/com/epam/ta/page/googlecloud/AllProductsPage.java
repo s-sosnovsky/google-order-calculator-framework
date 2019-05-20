@@ -16,7 +16,7 @@ public class AllProductsPage extends AbstractPage {
     private final static String PAGE_URL = "https://cloud.google.com/products/";
     private final Logger logger = LogManager.getRootLogger();
 
-    @FindBy (xpath = "//a[@track-name='seePricing']")
+    @FindBy (xpath = "//div[@class='cloud-button__set']/a[2]")
     private WebElement seePricingButton;
 
     @Override
