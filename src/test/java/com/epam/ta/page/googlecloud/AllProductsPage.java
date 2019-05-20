@@ -31,9 +31,8 @@ public class AllProductsPage extends AbstractPage {
 
     public SeePricingPage clickSeePricingButton(){
         new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.
-                visibilityOfElementLocated(By.xpath("//a[@track-name='seePricing']")));
-        seePricingButton.click();
-        logger.info("SeePricing page opened");
+                visibilityOf(seePricingButton)).click();
+        logger.info("Trying to open see pricing page");
         return new SeePricingPage(driver);
     }
 }
