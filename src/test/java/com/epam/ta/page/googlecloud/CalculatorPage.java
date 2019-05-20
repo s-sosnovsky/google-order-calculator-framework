@@ -41,7 +41,7 @@ public class CalculatorPage extends AbstractPage {
     @FindBy (xpath ="//md-select[@id='select_74']")
     private WebElement instanceTypeDropDown;
 
-    @FindBy(xpath = "//md-select-menu/md-content/md-optgroup[@label='standard']/md-option")
+    @FindBy(xpath = "//md-optgroup[@label='standard']/md-option")
     private List<WebElement> instanceTypeOptionsList;
 
     @FindBy(xpath = "//md-checkbox[contains(@ng-model,'addGPUs')]")
