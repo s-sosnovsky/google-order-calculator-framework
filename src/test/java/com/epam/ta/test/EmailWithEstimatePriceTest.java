@@ -4,13 +4,15 @@ import com.epam.ta.page.googlecloud.CalculatorPage;
 import com.epam.ta.page.tenminutesemail.TenMinutesEmailHomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import com.epam.ta.model.Order;
+import com.epam.ta.service.OrderCreator;
 
 
 public class EmailWithEstimatePriceTest extends CommonConditions {
 
     @Test
     public void sendTotalEstimateEmailNotification() throws InterruptedException {
-
+        Order order = OrderCreator.withCredentialsFromProperty();   
         TenMinutesEmailHomePage tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
         tenMinutesEmailHomePage.open();
         String tenMinutesEmail = tenMinutesEmailHomePage.getTenMinutesEmail();
