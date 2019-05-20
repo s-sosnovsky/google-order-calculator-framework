@@ -240,8 +240,8 @@ public class CalculatorPage extends AbstractPage {
                 .getText();
     }
 
-    public CalculatorPage setTenMinutesEmail(String email) throws InterruptedException {
-
+  public CalculatorPage setTenMinutesEmail(String email) throws InterruptedException {
+        Thread.sleep(3000);
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(emailValueField));
         emailValueField.sendKeys(email);
         logger.info("Set 10 minutes email: " + email);
