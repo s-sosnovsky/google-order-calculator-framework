@@ -30,9 +30,7 @@ public class SeePricingPage extends AbstractPage {
     }
 
     public CalculatorPage clickCaltulatorsButton(){
-        new WebDriverWait(driver,10).until(ExpectedConditions.
-                visibilityOfElementLocated(By.xpath("//a[@track-name='pricingNav/calculators']")));
-        calculatorsButton.click();
+        new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(calculatorsButton)).click();
         logger.info("Calculator page opened");
         return new CalculatorPage(driver);
     }
