@@ -205,7 +205,7 @@ public class CalculatorPage extends AbstractPage {
         for (WebElement option : dropDownOptions) {
             if (option.getText().contains(text)) {
                 option.click();
-                return;
+                 break;
             }
         }
     }
