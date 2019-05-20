@@ -14,10 +14,12 @@ public class CreateNewInstanceOrderTest extends CommonConditions{
     @Test
     public void estimateSimpleInstanceOrderPricePerMonth() throws InterruptedException {
 
-        googleCloudHomePage = new GoogleCloudHomePage(driver);
-        allProductsPage = googleCloudHomePage.open().clickExploreNewProductsButton();
-        seePricingPage = allProductsPage.clickSeePricingButton();
-        calculatorPage = seePricingPage.clickCaltulatorsButton();
+//         googleCloudHomePage = new GoogleCloudHomePage(driver);
+//         allProductsPage = googleCloudHomePage.open().clickExploreNewProductsButton();
+//         seePricingPage = allProductsPage.clickSeePricingButton();
+//         calculatorPage = seePricingPage.clickCaltulatorsButton();
+        calculatorPage = new CalculatorPage(driver);
+        calculatorPage.open();
         createSimpleOrder(calculatorPage);
 
         Assert.assertTrue(calculatorPage.getVMClassText().
