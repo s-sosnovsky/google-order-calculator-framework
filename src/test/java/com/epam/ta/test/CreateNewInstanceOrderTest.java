@@ -7,13 +7,15 @@ import com.epam.ta.service.OrderCreator;
 import org.apache.commons.codec.language.Soundex;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import com.epam.ta.model.Order;
+
 
 
 public class CreateNewInstanceOrderTest extends CommonConditions{
 
     @Test
     public void estimateSimpleInstanceOrderPricePerMonth() throws InterruptedException {
-        order = OrderCreator.withCredentialsFromProperty();
+        Order order = OrderCreator.withCredentialsFromProperty();
         CalculatorPage calculatorPage = new CalculatorPage(driver);
         calculatorPage.open();
         calculatorPage
