@@ -101,7 +101,7 @@ public class CalculatorPage extends AbstractPage {
     @FindBy (xpath = "//button[@id = 'email_quote']")
     private WebElement emailEstimateButton;
 
-    @FindBy (xpath = "//form[@name = 'emailForm']/descendant::input[@type ='email']")
+    @FindBy (xpath = "//input[@type ='email']")
     WebElement emailValueField;
 
     @FindBy (xpath = "//button[@aria-label='Send Email']")
