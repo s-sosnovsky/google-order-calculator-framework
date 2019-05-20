@@ -17,7 +17,7 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
         tenMinutesEmailHomePage.switchToSecondTab();
         CalculatorPage calculatorPage = new CalculatorPage(driver);
         calculatorPage.open();
-        Order order = OrderCreator.withCredentialsFromProperty();
+        
         calculatorPage
                 .switchToOrderIFrame()
                 .setOrderCloudEngine(order.getCloudEngine())
