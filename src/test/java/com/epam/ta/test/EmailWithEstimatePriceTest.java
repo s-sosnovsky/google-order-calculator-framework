@@ -2,7 +2,7 @@ package com.epam.ta.test;
 
 import com.epam.ta.page.googlecloud.CalculatorPage;
 import com.epam.ta.page.tenminutesemail.TenMinutesEmailHomePage;
-import com.epam.ta.page.tenminutesemail.TenMinutesEmailReadEmailPage;
+import com.epam.ta.page.tenminutesemail.TenMinutesReadEmailPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.epam.ta.model.Order;
