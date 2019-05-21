@@ -20,35 +20,8 @@ import org.testng.annotations.Listeners;
 @Listeners({TestListener.class})
 public class CommonConditions {
 
-    private final Logger logger = LogManager.getRootLogger();
     protected WebDriver driver;
-    protected CalculatorPage calculatorPage;
-    protected AllProductsPage allProductsPage;
-    protected GoogleCloudHomePage googleCloudHomePage;
-    protected SeePricingPage seePricingPage;
-    protected TenMinutesEmailHomePage tenMinutesEmailHomePage;
-    protected TenMinutesReadEmailPage readEmailPage;
-    protected Order order = OrderCreator.withCredentialsFromProperty();
-
-    public CalculatorPage createSimpleOrder(CalculatorPage calculatorPage) throws InterruptedException {
-        order = OrderCreator.withCredentialsFromProperty();
-        calculatorPage
-                .switchToOrderIFrame()
-                .setOrderCloudEngine(order.getCloudEngine())
-                .setNumberOfInstances(order.getNumberOfInstances())
-                .setOperationSystem(order.getOperationSystemType())
-                .setVmClass(order.getVmClassType())
-                .setInstanceType(order.getInstanceType())
-                .selectAddGpuCheckbox()
-                .setNumberOfGpu(order.getNumberOfGpu())
-                .selectGpuType(order.getGpuType())
-                .setLocalSsdType(order.getLocalSsdType())
-                .setDatacenterLocation(order.getDatacenterLocation())
-                .setCommitmentTerm(order.getCommitmentTerm())
-                .clickAddToEstimateButton();
-                logger.info("Simple order created");
-        return calculatorPage;
-    }
+    protected Order order;
 
     @BeforeMethod()
     public void setUp()
