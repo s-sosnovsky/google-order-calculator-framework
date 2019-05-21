@@ -107,7 +107,7 @@ public class CalculatorPage extends AbstractPage {
     @FindBy (xpath = "//button[@aria-label='Send Email']")
     WebElement sendEmailButton;
     
-    @FindBy (xpath = "//label[@for="input_506"]")
+    @FindBy (xpath = "//label[@for='input_506']")
     WebElement emailForm;
 
     @Override
