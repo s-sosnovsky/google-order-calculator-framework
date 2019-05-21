@@ -107,9 +107,6 @@ public class CalculatorPage extends AbstractPage {
     @FindBy (xpath = "//button[@aria-label='Send Email']")
     WebElement sendEmailButton;
     
-    @FindBy (xpath = "//label[@for='input_506']")
-    WebElement emailForm;
-
     @Override
     public CalculatorPage open() {
         driver.navigate().to(PAGE_URL);
@@ -244,8 +241,7 @@ public class CalculatorPage extends AbstractPage {
     }
 
   public CalculatorPage setTenMinutesEmail(String email) throws InterruptedException {
-       //((JavascriptExecutor)driver).executeScript("window.scrollBy(0,1000)");
-        //scrollToElement(emailForm);
+       ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,250)");
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(emailValueField));
         emailValueField.sendKeys(email);
         logger.info("Set 10 minutes email: " + email);
@@ -253,7 +249,7 @@ public class CalculatorPage extends AbstractPage {
     }
 
     public void clickSendEmailAddressButton() throws InterruptedException {
-        //((JavascriptExecutor)driver).executeScript("window.scrollBy(0,150)");
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,150)");
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS*2).until(ExpectedConditions.elementToBeClickable(sendEmailButton));
         sendEmailButton.click();
         logger.info("Email with estimated price sent");
