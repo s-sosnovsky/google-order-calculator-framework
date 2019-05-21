@@ -241,6 +241,7 @@ public class CalculatorPage extends AbstractPage {
     }
 
   public CalculatorPage setTenMinutesEmail(String email) throws InterruptedException {
+        driver.switchTo().frame(orderFormIframe);
        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,250)");
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(emailValueField));
         emailValueField.sendKeys(email);
