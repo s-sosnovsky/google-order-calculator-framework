@@ -8,8 +8,7 @@ import org.apache.commons.codec.language.Soundex;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.epam.ta.model.Order;
-
-
+import com.epam.ta.service.OrderCreator;
 
 public class CreateNewInstanceOrderTest extends CommonConditions{
 
