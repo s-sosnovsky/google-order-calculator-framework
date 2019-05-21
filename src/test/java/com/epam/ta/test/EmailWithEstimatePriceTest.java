@@ -12,35 +12,21 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
 
     @Test
     public void sendTotalEstimateEmailNotification() throws InterruptedException {
-        Order order = OrderCreator.withCredentialsFromProperty();   
+        order = OrderCreator.createComputeEngineOrder();
         TenMinutesEmailHomePage tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
         tenMinutesEmailHomePage.open();
         String tenMinutesEmail = tenMinutesEmailHomePage.getTenMinutesEmail();
         tenMinutesEmailHomePage.switchToSecondTab();
         CalculatorPage calculatorPage = new CalculatorPage(driver);
-        calculatorPage.open();
-        
         calculatorPage
-                .switchToOrderIFrame()
-                .setOrderCloudEngine(order.getCloudEngine())
-                .setNumberOfInstances(order.getNumberOfInstances())
-                .setOperationSystem(order.getOperationSystemType())
-                .setVmClass(order.getVmClassType())
-                .setInstanceType(order.getInstanceType())
-                .selectAddGpuCheckbox()
-                .setNumberOfGpu(order.getNumberOfGpu())
-                .selectGpuType(order.getGpuType())
-                .setLocalSsdType(order.getLocalSsdType())
-                .setDatacenterLocation(order.getDatacenterLocation())
-                .setCommitmentTerm(order.getCommitmentTerm())
-                .clickAddToEstimateButton();     
-
+                .open()
+                .createSimpleOrder(order);
         String totalEstimateFromGoogleCalculator = calculatorPage.getTotalCostText();
         calculatorPage.clickEmailEstimateButton()
                 .setTenMinutesEmail(tenMinutesEmail)
                 .clickSendEmailAddressButton();
         calculatorPage.switchToFirstTab();
-        readEmailPage = tenMinutesEmailHomePage.clickLetterInList();
+        TenMinutesReadEmailPage readEmailPage = tenMinutesEmailHomePage.clickLetterInList();
         String totalEstimateFromLetter = readEmailPage.getTotalEstimateFromLetter();
 
         Assert.assertTrue(totalEstimateFromGoogleCalculator.contains(totalEstimateFromLetter),
