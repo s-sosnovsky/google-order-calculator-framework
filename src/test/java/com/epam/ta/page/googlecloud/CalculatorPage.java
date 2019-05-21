@@ -249,12 +249,11 @@ public class CalculatorPage extends AbstractPage {
         return this;
     }
 
-    public CalculatorPage clickSendEmailAddressButton() throws InterruptedException {
+    public void clickSendEmailAddressButton() throws InterruptedException {
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS*2).until(ExpectedConditions.elementToBeClickable(sendEmailButton));
         ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,250)");
         sendEmailButton.click();
         logger.info("Email with estimated price sent");
-        return this;
     }
     public CalculatorPage createSimpleOrder(Order order) throws InterruptedException {
         this
