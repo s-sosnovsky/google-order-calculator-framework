@@ -242,7 +242,7 @@ public class CalculatorPage extends AbstractPage {
 
   public CalculatorPage setTenMinutesEmail(String email) throws InterruptedException {
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(emailValueField));
-        //((JavascriptExecutor)driver).executeScript("window.scrollBy(0,500)");
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,300)");
         emailValueField.sendKeys(email);
         logger.info("Set 10 minutes email: " + email);
         return this;
