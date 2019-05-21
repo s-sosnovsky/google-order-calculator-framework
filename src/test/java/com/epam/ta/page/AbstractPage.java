@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public abstract class AbstractPage {
     protected WebDriver driver;
-    protected final int WAIT_TIMEOUT_SECONDS = 20;
+    protected final int WAIT_TIMEOUT_SECONDS = 10;
 
     public abstract AbstractPage open();
 
