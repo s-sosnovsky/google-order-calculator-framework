@@ -17,7 +17,7 @@ public class OrderCreator {
     public static final String TESTDATA_ORDER_TOTAL_ESTIMATED_PRICE = "testdata.order.totalEstimatedPrice";
 
 
-    public static Order withCredentialsFromProperty() {
+    public static Order createComputeEngineOrder(){
         return new Order(
                 TestDataReader.getTestData(TESTDATA_ORDER_ENGINE_TYPE),
                 TestDataReader.getTestData(TESTDATA_ORDER_NUMBER_OF_INSTANCES),
