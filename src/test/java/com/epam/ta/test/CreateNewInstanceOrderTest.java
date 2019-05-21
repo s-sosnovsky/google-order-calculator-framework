@@ -15,23 +15,10 @@ public class CreateNewInstanceOrderTest extends CommonConditions{
 
     @Test
     public void estimateSimpleInstanceOrderPricePerMonth() throws InterruptedException {
-        Order order = OrderCreator.withCredentialsFromProperty();
+        order = OrderCreator.createComputeEngineOrder();
         CalculatorPage calculatorPage = new CalculatorPage(driver);
         calculatorPage.open();
-        calculatorPage
-                .switchToOrderIFrame()
-                .setOrderCloudEngine(order.getCloudEngine())
-                .setNumberOfInstances(order.getNumberOfInstances())
-                .setOperationSystem(order.getOperationSystemType())
-                .setVmClass(order.getVmClassType())
-                .setInstanceType(order.getInstanceType())
-                .selectAddGpuCheckbox()
-                .setNumberOfGpu(order.getNumberOfGpu())
-                .selectGpuType(order.getGpuType())
-                .setLocalSsdType(order.getLocalSsdType())
-                .setDatacenterLocation(order.getDatacenterLocation())
-                .setCommitmentTerm(order.getCommitmentTerm())
-                .clickAddToEstimateButton();
+        calculatorPage.createSimpleOrder(order);
 
         Assert.assertTrue(calculatorPage.getVMClassText().
                         contains(order.getVmClassType()
