@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.epam.ta.model.Order;
+import com.epam.ta.service.OrderCreator;
 
 import java.util.List;
 
