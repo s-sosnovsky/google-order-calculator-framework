@@ -35,6 +35,11 @@ public abstract class AbstractPage {
         Thread.sleep(500);
     }
 
+    protected void scrollToElement(WebElement element) throws InterruptedException {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        Thread.sleep(500);
+    }
+
     public void  switchToSecondTab() {
         ((JavascriptExecutor)driver).executeScript("window.open()");
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
