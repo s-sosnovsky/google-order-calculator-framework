@@ -32,8 +32,11 @@ public class TenMinutesEmailHomePage extends AbstractPage {
     }
 
     public String getTenMinutesEmail(){
-        return new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(tenMinutesEmailInput))
+        String email = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(tenMinutesEmailInput))
                 .getAttribute("value");
+        logger.info("Email generated: " + email);
+        if(email.contains("cndps.com")){return  email;}
+        return null;
     }
 
     public TenMinutesReadEmailPage clickLetterInList() throws InterruptedException {
