@@ -26,7 +26,7 @@ public class TenMinutesEmailHomePage extends AbstractPage {
     private WebElement googlEmailLink;
 
     @Override
-    public AbstractPage open() {
+    public TenMinutesEmailHomePage open() {
         driver.navigate().to(PAGE_URL);
         return this;
     }
