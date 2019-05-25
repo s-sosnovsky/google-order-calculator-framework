@@ -4,6 +4,7 @@ import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
@@ -32,8 +33,11 @@ public abstract class AbstractPage {
 
 
     protected void scrollToElement(WebElement element) throws InterruptedException {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-        Thread.sleep(500);
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+//        Thread.sleep(500);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        actions.perform();
     }
 
     public void  switchToSecondTab() {
