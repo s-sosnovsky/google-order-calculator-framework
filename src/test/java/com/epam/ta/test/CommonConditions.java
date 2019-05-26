@@ -28,10 +28,10 @@ public class CommonConditions {
     public void setUpDriver()
     {
         driver = DriverSingleton.getDriver();
-//        order = OrderCreator.createComputeEngineOrder();
-//        calculatorPage = new CalculatorPage(driver);
-//        calculatorPage.open();
-//        calculatorPage.createSimpleOrder(order);
+        order = OrderCreator.createComputeEngineOrder();
+        calculatorPage = new CalculatorPage(driver);
+        calculatorPage.open();
+        calculatorPage.createSimpleOrder(order);
     }
 
     @AfterClass(alwaysRun = true)

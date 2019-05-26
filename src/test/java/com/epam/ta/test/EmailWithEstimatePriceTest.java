@@ -16,19 +16,15 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
 
     @Test()
     public void sendTotalEstimateEmailNotification() {
-        order = OrderCreator.createComputeEngineOrder();
-        calculatorPage = new CalculatorPage(driver);
-        calculatorPage.open();
-        calculatorPage.createSimpleOrder(order);
-        totalEstimateFromGoogleCalculator = calculatorPage.getTotalCostText();
         tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
+        totalEstimateFromGoogleCalculator = calculatorPage.getTotalCostText();
+        calculatorPage
+                .clickEmailEstimateButton();
         tenMinutesEmailHomePage.createNewTab();
         tenMinutesEmailHomePage.switchToSecondTab();
         tenMinutesEmailHomePage.open();
         tenMinutesEmail= tenMinutesEmailHomePage.getTenMinutesEmail();
         tenMinutesEmailHomePage.switchToFirstTab();
-        calculatorPage
-                .clickEmailEstimateButton();
         calculatorPage
                 .setTenMinutesEmail(tenMinutesEmail)
                 .clickSendEmailAddressButton();
