@@ -13,23 +13,47 @@ import com.epam.ta.util.TestListener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
 
 @Listeners({TestListener.class})
 public class CommonConditions {
 
     protected WebDriver driver;
     protected Order order;
+    protected CalculatorPage calculatorPage;
+    protected TenMinutesEmailHomePage tenMinutesEmailHomePage;
+    protected String tenMinutesEmail;
 
-    @BeforeMethod()
+    @BeforeClass
     public void setUp()
     {
         driver = DriverSingleton.getDriver();
     }
 
-    @AfterMethod(alwaysRun = true)
+    @BeforeMethod(groups = {"g1"})
+    public void setCreateOrderTest()
+    {
+        order = OrderCreator.createComputeEngineOrder();
+        calculatorPage = new CalculatorPage(driver);
+        calculatorPage.open();
+        calculatorPage.createSimpleOrder(order);
+    }
+
+    @BeforeMethod(groups = {"g2"})
+    public void setEmailTest()
+    {
+        order = OrderCreator.createComputeEngineOrder();
+        tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
+        tenMinutesEmailHomePage.open();
+        tenMinutesEmail = tenMinutesEmailHomePage.getTenMinutesEmail();
+        tenMinutesEmailHomePage.switchToSecondTab();
+        CalculatorPage calculatorPage = new CalculatorPage(driver);
+        calculatorPage
+                .open()
+                .createSimpleOrder(order);
+    }
+
+    @AfterClass(alwaysRun = true)
     public void stopBrowser()
     {
         DriverSingleton.closeDriver();

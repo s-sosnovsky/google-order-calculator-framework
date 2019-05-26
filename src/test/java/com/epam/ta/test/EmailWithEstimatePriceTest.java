@@ -3,28 +3,25 @@ package com.epam.ta.test;
 import com.epam.ta.page.googlecloud.CalculatorPage;
 import com.epam.ta.page.tenminutesemail.TenMinutesEmailHomePage;
 import com.epam.ta.page.tenminutesemail.TenMinutesReadEmailPage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.epam.ta.service.OrderCreator;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
 
 
 public class EmailWithEstimatePriceTest extends CommonConditions {
 
-    @Test
+    @Test(groups = {"g2"})
     public void sendTotalEstimateEmailNotification() throws InterruptedException {
-        order = OrderCreator.createComputeEngineOrder();
-        TenMinutesEmailHomePage tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
-        tenMinutesEmailHomePage.open();
-        String tenMinutesEmail = tenMinutesEmailHomePage.getTenMinutesEmail();
-        tenMinutesEmailHomePage.switchToSecondTab();
-        CalculatorPage calculatorPage = new CalculatorPage(driver);
-        calculatorPage
-                .open()
-                .createSimpleOrder(order);
+//        order = OrderCreator.createComputeEngineOrder();
+//        TenMinutesEmailHomePage tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
+//        tenMinutesEmailHomePage.open();
+//        String tenMinutesEmail = tenMinutesEmailHomePage.getTenMinutesEmail();
+//        tenMinutesEmailHomePage.switchToSecondTab();
+//        CalculatorPage calculatorPage = new CalculatorPage(driver);
+//        calculatorPage
+//                .open()
+//                .createSimpleOrder(order);
         String totalEstimateFromGoogleCalculator = calculatorPage.getTotalCostText();
         calculatorPage.clickEmailEstimateButton()
                 .setTenMinutesEmail(tenMinutesEmail)
@@ -34,9 +31,6 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
         String totalEstimateFromLetter = readEmailPage.getTotalEstimateFromLetter();
 
         assertThat(totalEstimateFromGoogleCalculator, containsString(totalEstimateFromLetter));
-
-//        Assert.assertTrue(totalEstimateFromGoogleCalculator.contains(totalEstimateFromLetter),
-//                "Total estimate values in the letter and in the googlecloud calculator do not match");
 
     }
 }

@@ -152,12 +152,12 @@ public class CalculatorPage extends AbstractPage {
         return this;
     }
 
-     public CalculatorPage setInstanceType(String instanceTypeValue) throws InterruptedException {
+     public CalculatorPage setInstanceType(String instanceTypeValue){
         dropDownWaitForElementAndChooseOptionText(instanceTypeDropDown, instanceTypeOptionsList, instanceTypeValue);
         return this;
     }
 
-    public CalculatorPage selectAddGpuCheckbox() throws InterruptedException {
+    public CalculatorPage selectAddGpuCheckbox(){
         new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(addGpuCheckbox)).click();
         return this;
     }
@@ -187,7 +187,7 @@ public class CalculatorPage extends AbstractPage {
         return this;
     }
 
-    public CalculatorPage clickAddToEstimateButton() throws InterruptedException {
+    public CalculatorPage clickAddToEstimateButton(){
 
         new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(addToEstimateButton));
         addToEstimateButton.click();
@@ -256,8 +256,7 @@ public class CalculatorPage extends AbstractPage {
         sendEmailButton.click();
         logger.info("Email with estimated price sent");
     }
-    public void createSimpleOrder(Order order) throws InterruptedException {
-
+    public void createSimpleOrder(Order order)  {
                 switchToOrderIFrame();
                 setOrderCloudEngine(order.getCloudEngine());
                 setNumberOfInstances(order.getNumberOfInstances());

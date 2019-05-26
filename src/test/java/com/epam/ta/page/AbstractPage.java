@@ -35,9 +35,8 @@ public abstract class AbstractPage {
 
 
     protected void scrollToElement(WebElement element){
-        Actions build = new Actions(driver);
-        build.moveToElement(element).build().perform();
-       //
+        Actions actionMove = new Actions(driver);
+        actionMove.moveToElement(element).build().perform();
     }
 
     public void  switchToSecondTab() {

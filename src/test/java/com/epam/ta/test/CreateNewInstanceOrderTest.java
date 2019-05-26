@@ -12,12 +12,12 @@ import com.epam.ta.service.OrderCreator;
 
 public class CreateNewInstanceOrderTest extends CommonConditions{
 
-    @Test
-    public void estimateSimpleInstanceOrderPricePerMonth() throws InterruptedException {
-        order = OrderCreator.createComputeEngineOrder();
-        CalculatorPage calculatorPage = new CalculatorPage(driver);
-        calculatorPage.open();
-        calculatorPage.createSimpleOrder(order);
+    @Test(groups = {"g1"})
+    public void estimateSimpleInstanceOrderPricePerMonth()  {
+//        order = OrderCreator.createComputeEngineOrder();
+//        CalculatorPage calculatorPage = new CalculatorPage(driver);
+//        calculatorPage.open();
+//        calculatorPage.createSimpleOrder(order);
 
         Assert.assertTrue(calculatorPage.getVMClassText().
                         contains(order.getVmClassType()
