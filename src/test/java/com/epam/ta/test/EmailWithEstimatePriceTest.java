@@ -3,6 +3,7 @@ package com.epam.ta.test;
 import com.epam.ta.page.googlecloud.CalculatorPage;
 import com.epam.ta.page.tenminutesemail.TenMinutesEmailHomePage;
 import com.epam.ta.service.OrderCreator;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
@@ -28,6 +29,7 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
         String emailHandle = driver.getWindowHandle();
 
         driver.switchTo().window(parentHandle);
+        driver.findElement(By.xpath("//button[@id = 'email_quote']")).click();
         calculatorPage
                 .clickEmailEstimateButton();
         calculatorPage
