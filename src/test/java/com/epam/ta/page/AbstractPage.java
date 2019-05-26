@@ -37,12 +37,13 @@ public abstract class AbstractPage {
     }
 
 
-    protected void scrollToElement(WebElement element) throws InterruptedException {
+    protected void scrollToElement(WebElement element){
 //        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 //        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element);
-        actions.perform();
+//        Actions actions = new Actions(driver);
+//        actions.moveToElement(element);
+//        actions.perform();
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,250)");
     }
 
     public void  switchToSecondTab() {

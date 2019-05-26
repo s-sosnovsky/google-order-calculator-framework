@@ -173,7 +173,7 @@ public class CalculatorPage extends AbstractPage {
         return this;
     }
 
-    public CalculatorPage setLocalSsdType(String ssdValue) throws InterruptedException {
+    public CalculatorPage setLocalSsdType(String ssdValue)  {
         scrollToElement(localSsdTypeDropDown);
         dropDownWaitForElementAndChooseOptionText(localSsdTypeDropDown, localSsdOptionsList, ssdValue);
         return this;
