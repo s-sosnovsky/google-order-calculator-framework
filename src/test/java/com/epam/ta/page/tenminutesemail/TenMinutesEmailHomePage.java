@@ -40,7 +40,6 @@ public class TenMinutesEmailHomePage extends AbstractPage {
         ((JavascriptExecutor) driver).executeScript("window.open('https://10minutemail.net/')");
         logger.info("https://10minutemail.net opened");
         windowHandles = new ArrayList<String>(driver.getWindowHandles());
-        tabMinutemail = windowHandles.get(1);
         driver.switchTo().window(windowHandles.get(1));
     }
 
