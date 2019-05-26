@@ -39,8 +39,8 @@ public class TenMinutesEmailHomePage extends AbstractPage {
     public void openInNewTab() {
         ((JavascriptExecutor) driver).executeScript("window.open('https://10minutemail.net/')");
         logger.info("https://10minutemail.net opened");
-        windowHandles = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(windowHandles.get(1));
+//        windowHandles = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(windowHandles.get(1));
     }
 
     public void moveToParentPage() {
