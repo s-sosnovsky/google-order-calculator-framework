@@ -39,8 +39,11 @@ public abstract class AbstractPage {
         actionMove.moveToElement(element).build().perform();
     }
 
-    public void  switchToSecondTab() {
+    public void  createNewTab() {
         ((JavascriptExecutor)driver).executeScript("window.open()");
+    }
+
+    public void  switchToSecondTab() {
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
     }
