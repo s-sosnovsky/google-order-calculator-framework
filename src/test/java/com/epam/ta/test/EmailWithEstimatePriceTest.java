@@ -20,8 +20,8 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
         tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
         calculatorPage
                 .clickEmailEstimateButton();
-        tenMinutesEmailHomePage.openInNewTab();
         tenMinutesEmailHomePage.switchToSecondTab();
+        tenMinutesEmailHomePage.open();
         tenMinutesEmail= tenMinutesEmailHomePage.getTenMinutesEmail();
         tenMinutesEmailHomePage.moveToParentPage();
         calculatorPage
