@@ -35,12 +35,6 @@ public class CommonConditions {
 
     }
 
-    @BeforeMethod
-    public void setOrder(){
-
-
-    }
-
     @AfterClass(alwaysRun = true)
     public void tearDrop()
     {

@@ -20,6 +20,7 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
         tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
         tenMinutesEmailHomePage.open();
         tenMinutesEmail= tenMinutesEmailHomePage.getTenMinutesEmail();
+        Thread.sleep(5000);
         tenMinutesEmailHomePage.switchToFirstTab();
         totalEstimateFromGoogleCalculator = calculatorPage.getTotalCostText();
         calculatorPage.clickEmailEstimateButton()
