@@ -65,18 +65,5 @@ public class TenMinutesEmailHomePage extends AbstractPage {
         return new TenMinutesReadEmailPage(driver);
     }
 
-    public void  createNewTab() {
-        ((JavascriptExecutor)driver).executeScript("window.open()");
-    }
 
-    public void  switchToSecondTab() {
-        ((JavascriptExecutor)driver).executeScript("window.open()");
-        tabs = new ArrayList(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
-    }
-
-    public void  switchToFirstTab() {
-
-        driver.switchTo().window(tabs.get(0));
-    }
 }

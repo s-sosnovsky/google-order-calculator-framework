@@ -255,7 +255,7 @@ public class CalculatorPage extends AbstractPage {
         sendEmailButton.click();
         logger.info("Email with estimated price sent");
     }
-    public CalculatorPage createSimpleOrder(Order order)  {
+    public void createSimpleOrder(Order order)  {
                 switchToOrderIFrame();
                 setOrderCloudEngine(order.getCloudEngine());
                 setNumberOfInstances(order.getNumberOfInstances());
@@ -270,7 +270,7 @@ public class CalculatorPage extends AbstractPage {
                 setCommitmentTerm(order.getCommitmentTerm());
                 clickAddToEstimateButton();
         logger.info("Simple order created and sent for estimation");
-        return this;
+
     }
 }
 
