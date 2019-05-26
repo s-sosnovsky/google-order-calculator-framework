@@ -35,8 +35,9 @@ public abstract class AbstractPage {
 
 
     protected void scrollToElement(WebElement element){
-
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        Actions build = new Actions(driver);
+        build.moveToElement(element).build().perform();
+       //
     }
 
     public void  switchToSecondTab() {

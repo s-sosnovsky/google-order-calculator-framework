@@ -204,8 +204,9 @@ public class CalculatorPage extends AbstractPage {
     }
 
     private void dropDownWaitForElementAndChooseOptionText(WebElement dropDown, List<WebElement> dropDownOptions, String text){
+        scrollToElement(dropDown);
         new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(dropDown)).click();
-        //new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOfAllElements(dropDownOptions));
+        new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOfAllElements(dropDownOptions));
         for (WebElement option : dropDownOptions) {
             if (option.getText().contains(text)) {
                 option.click();
@@ -243,14 +244,14 @@ public class CalculatorPage extends AbstractPage {
                 .getText();
     }
 
-  public CalculatorPage setTenMinutesEmail(String email) throws InterruptedException {
+  public CalculatorPage setTenMinutesEmail(String email){
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(emailValueField));
         emailValueField.sendKeys(email);
         logger.info("Set 10 minutes email: " + email);
         return this;
     }
 
-    public void clickSendEmailAddressButton() throws InterruptedException {
+    public void clickSendEmailAddressButton(){
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS*2).until(ExpectedConditions.elementToBeClickable(sendEmailButton));
         sendEmailButton.click();
         logger.info("Email with estimated price sent");
