@@ -27,14 +27,16 @@ public class CommonConditions {
     @BeforeClass
     public void setUpDriver()
     {
-        calculatorPage = new CalculatorPage(driver);
-        calculatorPage.createSimpleOrder(order);
         driver = DriverSingleton.getDriver();
     }
 
     @BeforeMethod
     public void setOrder(){
         order = OrderCreator.createComputeEngineOrder();
+        calculatorPage = new CalculatorPage(driver);
+        calculatorPage.createSimpleOrder(order);
+        calculatorPage.clickAddToEstimateButton();
+
     }
 
     @AfterClass(alwaysRun = true)
