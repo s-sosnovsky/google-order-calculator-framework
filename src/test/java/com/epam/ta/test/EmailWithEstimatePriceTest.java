@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.containsString;
 
 public class EmailWithEstimatePriceTest extends CommonConditions {
 
-    @Test(groups = {"g2"})
+    @Test(dependsOnMethods = { "setEmailTest" })
     public void sendTotalEstimateEmailNotification() throws InterruptedException {
 //        order = OrderCreator.createComputeEngineOrder();
 //        TenMinutesEmailHomePage tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);

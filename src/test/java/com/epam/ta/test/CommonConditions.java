@@ -30,7 +30,7 @@ public class CommonConditions {
         driver = DriverSingleton.getDriver();
     }
 
-    @BeforeMethod(groups = {"g1"})
+    @BeforeMethod
     public void setCreateOrderTest()
     {
         order = OrderCreator.createComputeEngineOrder();
@@ -39,7 +39,7 @@ public class CommonConditions {
         calculatorPage.createSimpleOrder(order);
     }
 
-    @BeforeMethod(groups = {"g2"})
+    @BeforeMethod
     public void setEmailTest()
     {
         order = OrderCreator.createComputeEngineOrder();

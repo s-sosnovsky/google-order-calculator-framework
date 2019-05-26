@@ -12,7 +12,7 @@ import com.epam.ta.service.OrderCreator;
 
 public class CreateNewInstanceOrderTest extends CommonConditions{
 
-    @Test(groups = {"g1"})
+    @Test(dependsOnMethods = { "setCreateOrderTest" })
     public void estimateSimpleInstanceOrderPricePerMonth()  {
 //        order = OrderCreator.createComputeEngineOrder();
 //        CalculatorPage calculatorPage = new CalculatorPage(driver);
