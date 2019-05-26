@@ -36,7 +36,7 @@ public class CommonConditions {
         order = OrderCreator.createComputeEngineOrder();
         calculatorPage = new CalculatorPage(driver);
         calculatorPage.open()
-                      .createSimpleOrder(order);
+                .createSimpleOrder(order);
 
     }
 

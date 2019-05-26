@@ -196,9 +196,9 @@ public class CalculatorPage extends AbstractPage {
     }
 
     public CalculatorPage clickEmailEstimateButton()  {
-        new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(emailEstimateButton))
-                .click();
-
+//        new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(emailEstimateButton))
+//                .click();
+        emailEstimateButton.click();
         logger.info("Opened email estimation pop-up");
         return this;
     }
