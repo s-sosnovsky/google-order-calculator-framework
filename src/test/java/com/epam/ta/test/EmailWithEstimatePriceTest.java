@@ -15,6 +15,7 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
 
     @Test()
     public void sendTotalEstimateEmailNotification() throws InterruptedException {
+        totalEstimateFromGoogleCalculator = calculatorPage.getTotalCostText();
         calculatorPage.clickEmailEstimateButton();
         //calculatorPage.createNewTab();
         calculatorPage.switchToSecondTab();
@@ -23,7 +24,7 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
         tenMinutesEmail= tenMinutesEmailHomePage.getTenMinutesEmail();
         tenMinutesEmailHomePage.switchToFirstTab();
         Thread.sleep(5000);
-        totalEstimateFromGoogleCalculator = calculatorPage.getTotalCostText();
+
         calculatorPage
                 .setTenMinutesEmail(tenMinutesEmail)
                 .clickSendEmailAddressButton();
