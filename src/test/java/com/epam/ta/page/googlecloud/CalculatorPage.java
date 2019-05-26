@@ -153,7 +153,7 @@ public class CalculatorPage extends AbstractPage {
     }
 
      public CalculatorPage setInstanceType(String instanceTypeValue) throws InterruptedException {
-        //scrollToElement(instanceTypeDropDown);
+        scrollToElement(instanceTypeDropDown);
         dropDownWaitForElementAndChooseOptionText(instanceTypeDropDown, instanceTypeOptionsList, instanceTypeValue);
         return this;
     }
@@ -174,7 +174,7 @@ public class CalculatorPage extends AbstractPage {
     }
 
     public CalculatorPage setLocalSsdType(String ssdValue) throws InterruptedException {
-        //scrollToElement(localSsdTypeDropDown);
+        scrollToElement(localSsdTypeDropDown);
         dropDownWaitForElementAndChooseOptionText(localSsdTypeDropDown, localSsdOptionsList, ssdValue);
         return this;
     }
