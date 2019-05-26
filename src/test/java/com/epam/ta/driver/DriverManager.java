@@ -5,11 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class DriverSingleton {
+public class DriverManager {
 
     private static WebDriver driver;
 
-    private DriverSingleton(){}
+    private DriverManager(){}
 
     public static WebDriver getDriver(){
         if (null == driver){

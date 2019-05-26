@@ -1,17 +1,12 @@
 package com.epam.ta.test;
 
-import com.epam.ta.driver.DriverSingleton;
+import com.epam.ta.driver.DriverManager;
 import com.epam.ta.model.Order;
-import com.epam.ta.page.googlecloud.AllProductsPage;
 import com.epam.ta.page.googlecloud.CalculatorPage;
-import com.epam.ta.page.googlecloud.GoogleCloudHomePage;
-import com.epam.ta.page.googlecloud.SeePricingPage;
 import com.epam.ta.page.tenminutesemail.TenMinutesEmailHomePage;
 import com.epam.ta.page.tenminutesemail.TenMinutesReadEmailPage;
 import com.epam.ta.service.OrderCreator;
 import com.epam.ta.util.TestListener;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
@@ -27,7 +22,7 @@ public class CommonConditions {
     @BeforeClass
     public void setUpDriver()
     {
-        driver = DriverSingleton.getDriver();
+        driver = DriverManager.getDriver();
         order = OrderCreator.createComputeEngineOrder();
         calculatorPage = new CalculatorPage(driver);
         calculatorPage.open();
@@ -37,6 +32,6 @@ public class CommonConditions {
     @AfterClass(alwaysRun = true)
     public void tearDrop()
     {
-        DriverSingleton.closeDriver();
+        DriverManager.closeDriver();
     }
 }

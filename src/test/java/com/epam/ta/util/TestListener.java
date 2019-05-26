@@ -1,6 +1,6 @@
 package com.epam.ta.util;
 
-import com.epam.ta.driver.DriverSingleton;
+import com.epam.ta.driver.DriverManager;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -48,7 +48,7 @@ public class TestListener implements ITestListener {
     }
 
     private void saveScreenshot(){
-        File screenCapture = ((TakesScreenshot)DriverSingleton
+        File screenCapture = ((TakesScreenshot) DriverManager
                 .getDriver())
                 .getScreenshotAs(OutputType.FILE);
         try {
