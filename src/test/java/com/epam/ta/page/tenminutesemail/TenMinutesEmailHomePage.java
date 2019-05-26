@@ -10,10 +10,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+
 public class TenMinutesEmailHomePage extends AbstractPage {
 
     private final static String PAGE_URL = "https://10minutemail.net/";
     private final Logger logger = LogManager.getRootLogger();
+    private ArrayList<String> windowHandles;
+    private String tabMinutemail;
+    private String tabGoogle;
 
     public TenMinutesEmailHomePage(WebDriver driver) {
         super(driver);
@@ -31,12 +36,25 @@ public class TenMinutesEmailHomePage extends AbstractPage {
         return this;
     }
 
+    public void openInNewTab() {
+        ((JavascriptExecutor) driver).executeScript("window.open('https://10minutemail.net/')");
+        logger.info("https://10minutemail.net opened");
+        windowHandles = new ArrayList<String>(driver.getWindowHandles());
+        tabMinutemail = windowHandles.get(1);
+        driver.switchTo().window(tabMinutemail);
+    }
+
+    public void moveToParentPage() {
+        tabGoogle = windowHandles.get(0);
+        driver.switchTo().window(tabGoogle);
+        logger.info("Switched to first tab");
+    }
+
+
     public String getTenMinutesEmail(){
         String email = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(tenMinutesEmailInput))
                 .getAttribute("value");
         logger.info("Email generated: " + email);
-//        if(email.contains("cndps.com")){return  email;}
-//        return null;
         return email;
     }
 
