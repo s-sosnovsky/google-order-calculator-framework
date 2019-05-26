@@ -15,7 +15,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public abstract class AbstractPage {
     protected WebDriver driver;
     protected final int WAIT_TIMEOUT_SECONDS = 10;
-
+    protected ArrayList<String> tabs = new ArrayList(driver.getWindowHandles());
     public abstract AbstractPage open();
 
     protected AbstractPage(WebDriver driver){
@@ -44,12 +44,11 @@ public abstract class AbstractPage {
     }
 
     public void  switchToSecondTab() {
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+
         driver.switchTo().window(tabs.get(1));
     }
 
     public void  switchToFirstTab() {
-        ArrayList<String> tabs = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(0));
     }
 }
