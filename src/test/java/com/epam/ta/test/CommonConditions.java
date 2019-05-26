@@ -27,11 +27,13 @@ public class CommonConditions {
     @BeforeClass
     public void setUpDriver()
     {
+        calculatorPage = new CalculatorPage(driver);
+        calculatorPage.createSimpleOrder(order);
         driver = DriverSingleton.getDriver();
     }
 
     @BeforeMethod
-    public void setCreateOrderTest(){
+    public void setOrder(){
         order = OrderCreator.createComputeEngineOrder();
     }
 

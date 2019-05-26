@@ -2,9 +2,7 @@ package com.epam.ta.test;
 
 import com.epam.ta.page.googlecloud.CalculatorPage;
 import com.epam.ta.page.tenminutesemail.TenMinutesEmailHomePage;
-import com.epam.ta.page.tenminutesemail.TenMinutesReadEmailPage;
 import org.testng.annotations.Test;
-import com.epam.ta.service.OrderCreator;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 
