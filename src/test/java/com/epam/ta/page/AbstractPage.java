@@ -43,7 +43,7 @@ public abstract class AbstractPage {
         ((JavascriptExecutor)driver).executeScript("window.open()");
     }
 
-    public void  switchToSecondTab() {
+    public void switchToLastTab() {
         tabs = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(tabs.size()-1));
     }
