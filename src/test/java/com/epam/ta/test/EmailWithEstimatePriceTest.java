@@ -5,8 +5,11 @@ import com.epam.ta.page.tenminutesemail.TenMinutesEmailHomePage;
 import com.epam.ta.page.tenminutesemail.TenMinutesReadEmailPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import com.epam.ta.model.Order;
 import com.epam.ta.service.OrderCreator;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 
 public class EmailWithEstimatePriceTest extends CommonConditions {
@@ -30,7 +33,10 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
         TenMinutesReadEmailPage readEmailPage = tenMinutesEmailHomePage.clickLetterInList();
         String totalEstimateFromLetter = readEmailPage.getTotalEstimateFromLetter();
 
-        Assert.assertTrue(totalEstimateFromGoogleCalculator.contains(totalEstimateFromLetter),
-                "Total estimate values in the letter and in the googlecloud calculator do not match");
+        assertThat(totalEstimateFromGoogleCalculator, containsString(totalEstimateFromLetter));
+
+//        Assert.assertTrue(totalEstimateFromGoogleCalculator.contains(totalEstimateFromLetter),
+//                "Total estimate values in the letter and in the googlecloud calculator do not match");
+
     }
 }
