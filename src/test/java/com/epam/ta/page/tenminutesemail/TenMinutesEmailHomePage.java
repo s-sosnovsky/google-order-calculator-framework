@@ -75,7 +75,7 @@ public class TenMinutesEmailHomePage extends AbstractPage {
     }
 
     public void  switchToFirstTab() {
-        tabs = new ArrayList(driver.getWindowHandles());
+
         driver.switchTo().window(tabs.get(0));
     }
 }
