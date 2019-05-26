@@ -1,14 +1,18 @@
 package com.epam.ta.page;
 
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.*;
 
 import java.util.ArrayList;
+import java.util.function.Function;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public abstract class AbstractPage {
     protected WebDriver driver;
@@ -33,6 +37,7 @@ public abstract class AbstractPage {
 
 
     protected void scrollToElement(WebElement element) throws InterruptedException {
+        new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(element));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
