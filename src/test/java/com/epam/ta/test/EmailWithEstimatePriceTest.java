@@ -14,7 +14,7 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
     private String tenMinutesEmail;
 
     @Test()
-    public void sendTotalEstimateEmailNotification() throws InterruptedException {
+    public void sendTotalEstimateEmailNotification() {
 
 //        calculatorPage.clickEmailEstimateButton();
        // calculatorPage.createNewTab();

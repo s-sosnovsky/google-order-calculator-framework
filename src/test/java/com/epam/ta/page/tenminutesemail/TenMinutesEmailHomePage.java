@@ -40,8 +40,8 @@ public class TenMinutesEmailHomePage extends AbstractPage {
         return email;
     }
 
-    public TenMinutesReadEmailPage clickLetterInList() throws InterruptedException {
-        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,300)");
+    public TenMinutesReadEmailPage clickLetterInList() {
+        scrollToElement(googlEmailLink);
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS*6).until(ExpectedConditions.visibilityOf(googlEmailLink))
                 .click();
         logger.info("TenMinutesReadEmailPage opened");
