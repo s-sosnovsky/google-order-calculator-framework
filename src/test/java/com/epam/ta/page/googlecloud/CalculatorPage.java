@@ -205,7 +205,7 @@ public class CalculatorPage extends AbstractPage {
 
     private void dropDownWaitForElementAndChooseOptionText(WebElement dropDown, List<WebElement> dropDownOptions, String text){
         new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(dropDown)).click();
-        new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOfAllElements(dropDownOptions));
+        //new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOfAllElements(dropDownOptions));
         for (WebElement option : dropDownOptions) {
             if (option.getText().contains(text)) {
                 option.click();

@@ -35,7 +35,7 @@ public abstract class AbstractPage {
 
 
     protected void scrollToElement(WebElement element){
-        new  WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(element));
+
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
