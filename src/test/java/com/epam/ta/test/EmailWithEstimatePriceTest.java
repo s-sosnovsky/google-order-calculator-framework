@@ -2,6 +2,7 @@ package com.epam.ta.test;
 
 import com.epam.ta.page.googlecloud.CalculatorPage;
 import com.epam.ta.page.tenminutesemail.TenMinutesEmailHomePage;
+import com.epam.ta.service.OrderCreator;
 import org.testng.annotations.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
@@ -15,7 +16,10 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
 
     @Test()
     public void sendTotalEstimateEmailNotification() {
-
+        order = OrderCreator.createComputeEngineOrder();
+        calculatorPage = new CalculatorPage(driver);
+        calculatorPage.open();
+        calculatorPage.createSimpleOrder(order);
         totalEstimateFromGoogleCalculator = calculatorPage.getTotalCostText();
         tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
         tenMinutesEmailHomePage.createNewTab();
