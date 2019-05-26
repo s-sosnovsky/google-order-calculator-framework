@@ -16,9 +16,9 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
     @Test()
     public void sendTotalEstimateEmailNotification() {
 
-//        calculatorPage.clickEmailEstimateButton();
-       // calculatorPage.createNewTab();
-//        calculatorPage.switchToSecondTab();
+        calculatorPage = new CalculatorPage(driver);
+        calculatorPage.open();
+        calculatorPage.createSimpleOrder(order);
 
         tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
         tenMinutesEmailHomePage.open();
