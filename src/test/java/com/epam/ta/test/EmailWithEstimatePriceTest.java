@@ -11,23 +11,19 @@ import static org.hamcrest.Matchers.containsString;
 
 public class EmailWithEstimatePriceTest extends CommonConditions {
 
-    @Test(dependsOnMethods = { "setEmailTest" })
+    @Test()
     public void sendTotalEstimateEmailNotification() throws InterruptedException {
-//        order = OrderCreator.createComputeEngineOrder();
-//        TenMinutesEmailHomePage tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
-//        tenMinutesEmailHomePage.open();
-//        String tenMinutesEmail = tenMinutesEmailHomePage.getTenMinutesEmail();
-//        tenMinutesEmailHomePage.switchToSecondTab();
-//        CalculatorPage calculatorPage = new CalculatorPage(driver);
-//        calculatorPage
-//                .open()
-//                .createSimpleOrder(order);
+        calculatorPage.switchToSecondTab();
+        tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
+        tenMinutesEmailHomePage.open();
+        String tenMinutesEmail = tenMinutesEmailHomePage.getTenMinutesEmail();
+        tenMinutesEmailHomePage.switchToFirstTab();
         String totalEstimateFromGoogleCalculator = calculatorPage.getTotalCostText();
         calculatorPage.clickEmailEstimateButton()
                 .setTenMinutesEmail(tenMinutesEmail)
                 .clickSendEmailAddressButton();
-        calculatorPage.switchToFirstTab();
-        TenMinutesReadEmailPage readEmailPage = tenMinutesEmailHomePage.clickLetterInList();
+        calculatorPage.switchToSecondTab();
+        readEmailPage = tenMinutesEmailHomePage.clickLetterInList();
         String totalEstimateFromLetter = readEmailPage.getTotalEstimateFromLetter();
 
         assertThat(totalEstimateFromGoogleCalculator, containsString(totalEstimateFromLetter));

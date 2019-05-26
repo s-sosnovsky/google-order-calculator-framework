@@ -22,10 +22,10 @@ public class CommonConditions {
     protected Order order;
     protected CalculatorPage calculatorPage;
     protected TenMinutesEmailHomePage tenMinutesEmailHomePage;
-    protected String tenMinutesEmail;
+    protected TenMinutesReadEmailPage readEmailPage;
 
     @BeforeClass
-    public void setUp()
+    public void setUpDriver()
     {
         driver = DriverSingleton.getDriver();
     }
@@ -35,26 +35,13 @@ public class CommonConditions {
     {
         order = OrderCreator.createComputeEngineOrder();
         calculatorPage = new CalculatorPage(driver);
-        calculatorPage.open();
-        calculatorPage.createSimpleOrder(order);
-    }
+        calculatorPage.open()
+                      .createSimpleOrder(order);
 
-    @BeforeMethod
-    public void setEmailTest()
-    {
-        order = OrderCreator.createComputeEngineOrder();
-        tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
-        tenMinutesEmailHomePage.open();
-        tenMinutesEmail = tenMinutesEmailHomePage.getTenMinutesEmail();
-        tenMinutesEmailHomePage.switchToSecondTab();
-        CalculatorPage calculatorPage = new CalculatorPage(driver);
-        calculatorPage
-                .open()
-                .createSimpleOrder(order);
     }
 
     @AfterClass(alwaysRun = true)
-    public void stopBrowser()
+    public void tearDrop()
     {
         DriverSingleton.closeDriver();
     }
