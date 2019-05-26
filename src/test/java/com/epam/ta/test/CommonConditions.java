@@ -31,13 +31,8 @@ public class CommonConditions {
     }
 
     @BeforeMethod
-    public void setCreateOrderTest()
-    {
+    public void setCreateOrderTest(){
         order = OrderCreator.createComputeEngineOrder();
-        calculatorPage = new CalculatorPage(driver);
-        calculatorPage.open()
-                .createSimpleOrder(order);
-
     }
 
     @AfterClass(alwaysRun = true)
