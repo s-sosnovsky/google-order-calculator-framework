@@ -22,7 +22,7 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
         tenMinutesEmailHomePage.switchToSecondTab();
         tenMinutesEmailHomePage.open();
         tenMinutesEmail= tenMinutesEmailHomePage.getTenMinutesEmail();
-        tenMinutesEmailHomePage.moveToParentPage();
+        tenMinutesEmailHomePage.switchToFirstTab();
         calculatorPage
                 .clickEmailEstimateButton();
         calculatorPage
