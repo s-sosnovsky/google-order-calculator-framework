@@ -21,23 +21,19 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
     public void sendTotalEstimateEmailNotification() {
 
         totalEstimateFromGoogleCalculator = calculatorPage.getTotalCostText();
-
-        String parentHandle = driver.getWindowHandle();
         tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
         tenMinutesEmailHomePage.createNewTab();
         tenMinutesEmailHomePage.switchToSecondTab();
         tenMinutesEmailHomePage.open();
         tenMinutesEmail= tenMinutesEmailHomePage.getTenMinutesEmail();
-        String emailHandle = driver.getWindowHandle();
-
-        driver.switchTo().window(parentHandle);
+       tenMinutesEmailHomePage.switchToFirstTab();
 
         calculatorPage.switchToOrderIFrame()
                 .clickEmailEstimateButton();
         calculatorPage
                 .setTenMinutesEmail(tenMinutesEmail)
                 .clickSendEmailAddressButton();
-        driver.switchTo().window(emailHandle);
+        calculatorPage.switchToSecondTab();
         readEmailPage = tenMinutesEmailHomePage.clickLetterInList();
         totalEstimateFromLetter = readEmailPage.getTotalEstimateFromLetter();
 
