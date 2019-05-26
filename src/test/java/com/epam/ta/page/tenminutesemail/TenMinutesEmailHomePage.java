@@ -41,7 +41,7 @@ public class TenMinutesEmailHomePage extends AbstractPage {
         logger.info("https://10minutemail.net opened");
         windowHandles = new ArrayList<String>(driver.getWindowHandles());
         tabMinutemail = windowHandles.get(1);
-        driver.switchTo().window(tabMinutemail);
+        driver.switchTo().window(windowHandles.get(1));
     }
 
     public void moveToParentPage() {
