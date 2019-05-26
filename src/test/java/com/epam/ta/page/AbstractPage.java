@@ -44,9 +44,8 @@ public abstract class AbstractPage {
     }
 
     public void  switchToSecondTab() {
-        ((JavascriptExecutor)driver).executeScript("window.open()");
         tabs = new ArrayList(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
+        driver.switchTo().window(tabs.get(tabs.size()-1));
     }
 
     public void  switchToFirstTab() {
