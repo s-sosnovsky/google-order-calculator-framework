@@ -36,20 +36,6 @@ public class TenMinutesEmailHomePage extends AbstractPage {
         return this;
     }
 
-    public void openInNewTab() {
-        ((JavascriptExecutor) driver).executeScript("window.open('https://10minutemail.net/')");
-        logger.info("https://10minutemail.net opened");
-//        windowHandles = new ArrayList<String>(driver.getWindowHandles());
-//        driver.switchTo().window(windowHandles.get(1));
-    }
-
-    public void moveToParentPage() {
-        tabGoogle = windowHandles.get(0);
-        driver.switchTo().window(tabGoogle);
-        logger.info("Switched to first tab");
-    }
-
-
     public String getTenMinutesEmail(){
         String email = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(tenMinutesEmailInput))
                 .getAttribute("value");
@@ -58,7 +44,6 @@ public class TenMinutesEmailHomePage extends AbstractPage {
     }
 
     public TenMinutesReadEmailPage clickLetterInList() {
-        //scrollToElement(googlEmailLink);
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS*6).until(ExpectedConditions.visibilityOf(googlEmailLink))
                 .click();
         logger.info("TenMinutesReadEmailPage opened");
