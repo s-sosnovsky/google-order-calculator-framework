@@ -244,14 +244,14 @@ public class CalculatorPage extends AbstractPage {
     }
 
   public CalculatorPage setTenMinutesEmail(String email){
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(emailValueField));
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(emailValueField));
         emailValueField.sendKeys(email);
         logger.info("Set 10 minutes email: " + email);
         return this;
     }
 
     public void clickSendEmailAddressButton(){
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS*2).until(ExpectedConditions.elementToBeClickable(sendEmailButton));
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS*2).until(ExpectedConditions.visibilityOf(sendEmailButton));
         sendEmailButton.click();
         logger.info("Email with estimated price sent");
     }
