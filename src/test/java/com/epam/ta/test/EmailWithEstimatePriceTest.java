@@ -31,8 +31,8 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
         String emailHandle = driver.getWindowHandle();
 
         driver.switchTo().window(parentHandle);
-        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//button[@id = 'email_quote']")))).click();
-        calculatorPage
+
+        calculatorPage.switchToOrderIFrame()
                 .clickEmailEstimateButton();
         calculatorPage
                 .setTenMinutesEmail(tenMinutesEmail)
