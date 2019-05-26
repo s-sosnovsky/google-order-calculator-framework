@@ -1,10 +1,7 @@
 package com.epam.ta.page;
 
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
@@ -37,13 +34,9 @@ public abstract class AbstractPage {
     }
 
 
-    protected void scrollToElement(){
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        Actions actions = new Actions(driver);
-//        actions.moveToElement(element);
-//        actions.perform();
-        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,250)");
+    protected void scrollToElement(WebElement element){
+        new  WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.elementToBeClickable(element));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
     public void  switchToSecondTab() {
