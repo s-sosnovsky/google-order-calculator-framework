@@ -22,7 +22,7 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
                 .clickEmailEstimateButton();
         String parentHandle = driver.getWindowHandle();
         tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
-        tenMinutesEmailHomePage.createNewTab();
+        //tenMinutesEmailHomePage.createNewTab();
         tenMinutesEmailHomePage.switchToSecondTab();
         tenMinutesEmailHomePage.open();
         tenMinutesEmail= tenMinutesEmailHomePage.getTenMinutesEmail();

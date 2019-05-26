@@ -70,6 +70,7 @@ public class TenMinutesEmailHomePage extends AbstractPage {
     }
 
     public void  switchToSecondTab() {
+        ((JavascriptExecutor)driver).executeScript("window.open()");
         tabs = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
     }
