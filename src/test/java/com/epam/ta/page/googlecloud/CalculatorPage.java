@@ -254,27 +254,25 @@ public class CalculatorPage extends AbstractPage {
 
     public void clickSendEmailAddressButton() throws InterruptedException {
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS*2).until(ExpectedConditions.elementToBeClickable(sendEmailButton));
-        //((JavascriptExecutor)driver).executeScript("window.scrollBy(0,250)");
         sendEmailButton.click();
         logger.info("Email with estimated price sent");
     }
-    public CalculatorPage createSimpleOrder(Order order) throws InterruptedException {
-        this
-                .switchToOrderIFrame()
-                .setOrderCloudEngine(order.getCloudEngine())
-                .setNumberOfInstances(order.getNumberOfInstances())
-                .setOperationSystem(order.getOperationSystemType())
-                .setVmClass(order.getVmClassType())
-                .setInstanceType(order.getInstanceType())
-                .selectAddGpuCheckbox()
-                .setNumberOfGpu(order.getNumberOfGpu())
-                .selectGpuType(order.getGpuType())
-                .setLocalSsdType(order.getLocalSsdType())
-                .setDatacenterLocation(order.getDatacenterLocation())
-                .setCommitmentTerm(order.getCommitmentTerm())
-                .clickAddToEstimateButton();
+    public void createSimpleOrder(Order order) throws InterruptedException {
+
+                switchToOrderIFrame();
+                setOrderCloudEngine(order.getCloudEngine());
+                setNumberOfInstances(order.getNumberOfInstances());
+                setOperationSystem(order.getOperationSystemType());
+                setVmClass(order.getVmClassType());
+                setInstanceType(order.getInstanceType());
+                selectAddGpuCheckbox();
+                setNumberOfGpu(order.getNumberOfGpu());
+                selectGpuType(order.getGpuType());
+                setLocalSsdType(order.getLocalSsdType());
+                setDatacenterLocation(order.getDatacenterLocation());
+                setCommitmentTerm(order.getCommitmentTerm());
+                clickAddToEstimateButton();
         logger.info("Simple order created and sent for estimation");
-        return this;
     }
 }
 
