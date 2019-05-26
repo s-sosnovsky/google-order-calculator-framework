@@ -38,8 +38,11 @@ public abstract class AbstractPage {
 
 
     protected void scrollToElement(WebElement element) throws InterruptedException {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        actions.perform();
     }
 
     public void  switchToSecondTab() {
