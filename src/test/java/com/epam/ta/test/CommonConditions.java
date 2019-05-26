@@ -32,7 +32,7 @@ public class CommonConditions {
         calculatorPage = new CalculatorPage(driver);
         calculatorPage.open();
         calculatorPage.createSimpleOrder(order);
-        calculatorPage.clickAddToEstimateButton();
+
     }
 
     @BeforeMethod
