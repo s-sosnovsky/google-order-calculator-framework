@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class AllProductsPage extends AbstractPage {
 
     private final static String PAGE_URL = "https://cloud.google.com/products/";
-    private final Logger logger = LogManager.getRootLogger();
+
 
     @FindBy (xpath = "//div[@class='cloud-button__set']/a[2]")
     private WebElement seePricingButton;

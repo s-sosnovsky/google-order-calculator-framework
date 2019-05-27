@@ -14,7 +14,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SeePricingPage extends AbstractPage {
 
     private final static String PAGE_URL = "https://cloud.google.com/pricing/";
-    private final Logger logger = LogManager.getRootLogger();
 
     @FindBy(xpath = "//li/a[contains(text(),'Calculators')]")
     private WebElement calculatorsButton;

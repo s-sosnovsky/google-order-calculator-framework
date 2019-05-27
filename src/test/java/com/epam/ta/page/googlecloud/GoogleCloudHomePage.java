@@ -14,7 +14,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class GoogleCloudHomePage extends AbstractPage {
 
     private final static String PAGE_URL = "https://cloud.google.com/";
-    private final Logger logger = LogManager.getRootLogger();
 
     public GoogleCloudHomePage(WebDriver driver) {
         super(driver);

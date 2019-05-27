@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class TenMinutesEmailHomePage extends AbstractPage {
 
     private final static String PAGE_URL = "https://10minutemail.net/";
-    private final Logger logger = LogManager.getRootLogger();
     private ArrayList<String> windowHandles;
     private String tabMinutemail;
     private String tabGoogle;

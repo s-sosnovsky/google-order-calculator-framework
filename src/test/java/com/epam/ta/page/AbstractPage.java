@@ -1,5 +1,7 @@
 package com.epam.ta.page;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -16,10 +18,12 @@ public abstract class AbstractPage {
     protected WebDriver driver;
     protected final int WAIT_TIMEOUT_SECONDS = 10;
     protected ArrayList<String> tabs;
+    protected Logger logger;
     public abstract AbstractPage open();
 
     protected AbstractPage(WebDriver driver){
         this.driver = driver;
+        logger = LogManager.getRootLogger();
         PageFactory.initElements(driver, this);
         jQueryAJAXCompleted();
     }

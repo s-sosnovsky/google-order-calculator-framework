@@ -3,15 +3,12 @@ package com.epam.ta.page.googlecloud;
 import com.epam.ta.page.AbstractPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.epam.ta.model.Order;
-import com.epam.ta.service.OrderCreator;
 
 import java.util.List;
 
@@ -96,7 +93,7 @@ public class CalculatorPage extends AbstractPage {
     private WebElement commitmentTermText;
 
     @FindBy (xpath = "//div[contains(text(), 'Region:')]")
-    private WebElement fatacenterLocationText;
+    private WebElement datacenterLocationText;
 
     @FindBy (xpath = "//b[contains(text(),'Total Estimated Cost')]")
     private WebElement totalEstimateValue;
@@ -234,7 +231,7 @@ public class CalculatorPage extends AbstractPage {
     }
 
     public String getDatacenterLocationText(){
-        return new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(fatacenterLocationText))
+        return new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(datacenterLocationText))
                 .getText();
     }
 
