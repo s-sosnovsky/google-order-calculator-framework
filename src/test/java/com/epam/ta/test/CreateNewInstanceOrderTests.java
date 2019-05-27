@@ -1,10 +1,6 @@
 package com.epam.ta.test;
 
-
-import com.epam.ta.page.googlecloud.CalculatorPage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 
