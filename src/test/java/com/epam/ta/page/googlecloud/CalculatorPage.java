@@ -188,7 +188,6 @@ public class CalculatorPage extends AbstractPage {
 
         new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(addToEstimateButton));
         addToEstimateButton.click();
-        logger.info("Order sent for estimation price");
         return this;
     }
 
