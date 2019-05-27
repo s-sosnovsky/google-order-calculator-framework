@@ -15,19 +15,17 @@ import java.util.ArrayList;
 public class TenMinutesEmailHomePage extends AbstractPage {
 
     private final static String PAGE_URL = "https://10minutemail.net/";
-    private ArrayList<String> windowHandles;
-    private String tabMinutemail;
-    private String tabGoogle;
 
-    public TenMinutesEmailHomePage(WebDriver driver) {
-        super(driver);
-    }
 
     @FindBy (xpath = "//input[@id = 'fe_text']")
     private  WebElement tenMinutesEmailInput;
 
     @FindBy(xpath = "//a[text() = 'Google Cloud Platform Price Estimate']")
     private WebElement googlEmailLink;
+
+    public TenMinutesEmailHomePage(WebDriver driver) {
+        super(driver);
+    }
 
     @Override
     public TenMinutesEmailHomePage open() {
@@ -48,6 +46,4 @@ public class TenMinutesEmailHomePage extends AbstractPage {
         logger.info("TenMinutesReadEmailPage opened");
         return new TenMinutesReadEmailPage(driver);
     }
-
-
 }

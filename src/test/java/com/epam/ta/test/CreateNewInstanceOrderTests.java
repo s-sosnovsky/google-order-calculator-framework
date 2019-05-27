@@ -9,8 +9,8 @@ public class CreateNewInstanceOrderTests extends CommonConditions{
     @Test
     public void checkDataCenterLocationConformity()  {
         assertThat(calculatorPage.getDatacenterLocationText(), containsString(order.getDatacenterLocation()));
-        
-}
+    }
+
     @Test
     public void checkInstanceTypeConformity(){
         assertThat(calculatorPage.getInstanceTypeText(), containsString(order.getInstanceType()));
@@ -35,6 +35,4 @@ public class CreateNewInstanceOrderTests extends CommonConditions{
     public void checkTotalEstimationConformity(){
         assertThat(calculatorPage.getTotalCostText(), containsString(order.getTotalEstimatePrice()));
     }
-
-
 }

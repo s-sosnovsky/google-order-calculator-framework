@@ -15,12 +15,12 @@ public class GoogleCloudHomePage extends AbstractPage {
 
     private final static String PAGE_URL = "https://cloud.google.com/";
 
+    @FindBy(xpath = "//div[@class='home-products__button']/a")
+    private WebElement exploreAllProductsButton;
+
     public GoogleCloudHomePage(WebDriver driver) {
         super(driver);
     }
-
-    @FindBy(xpath = "//div[@class='home-products__button']/a")
-    private WebElement exploreAllProductsButton;
 
     @Override
     public GoogleCloudHomePage open() {

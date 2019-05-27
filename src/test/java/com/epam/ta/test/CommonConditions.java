@@ -20,8 +20,7 @@ public class CommonConditions {
     protected TenMinutesReadEmailPage readEmailPage;
 
     @BeforeClass
-    public void setUpDriver()
-    {
+    public void setUpDriver(){
         driver = DriverManager.getDriver();
         order = OrderCreator.createComputeEngineOrder();
         calculatorPage = new CalculatorPage(driver);

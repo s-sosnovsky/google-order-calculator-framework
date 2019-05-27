@@ -15,7 +15,6 @@ import java.util.List;
 public class CalculatorPage extends AbstractPage {
 
     private final static String PAGE_URL="https://cloud.google.com/products/calculator/";
-    private final Logger logger = LogManager.getRootLogger();
 
     @FindBy(id = "idIframe")
     private WebElement orderFormIframe;
@@ -246,10 +245,11 @@ public class CalculatorPage extends AbstractPage {
         return this;
     }
 
-    public void clickSendEmailAddressButton(){
+    public CalculatorPage clickSendEmailAddressButton(){
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS*2).until(ExpectedConditions.visibilityOf(sendEmailButton));
         sendEmailButton.click();
         logger.info("Email with estimated price sent");
+        return this;
     }
     public void createSimpleOrder(Order order)  {
                 switchToOrderIFrame();

@@ -16,7 +16,6 @@ public class OrderCreator {
     public static final String TESTDATA_ORDER_COMMITTED_TERM = "testdata.order.committedUsage";
     public static final String TESTDATA_ORDER_TOTAL_ESTIMATED_PRICE = "testdata.order.totalEstimatedPrice";
 
-
     public static Order createComputeEngineOrder(){
         return new Order(
                 TestDataReader.getTestData(TESTDATA_ORDER_ENGINE_TYPE),

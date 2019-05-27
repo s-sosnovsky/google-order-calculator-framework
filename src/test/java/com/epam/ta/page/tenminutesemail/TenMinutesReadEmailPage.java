@@ -29,7 +29,6 @@ public class TenMinutesReadEmailPage extends AbstractPage {
                 .getText();
         logger.info("Letter received and opened with price: " + totalEsrimateFromLetter);
         return totalEsrimateFromLetter;
-
     }
 }
 
