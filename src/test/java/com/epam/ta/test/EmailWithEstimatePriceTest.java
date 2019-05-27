@@ -12,7 +12,7 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
     private String totalEstimateFromLetter;
     private String tenMinutesEmail;
 
-    @Test()
+    @Test
     public void sendTotalEstimateEmailNotification() {
 
         totalEstimateFromGoogleCalculator = calculatorPage.getTotalCostText();
@@ -21,17 +21,14 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
         tenMinutesEmailHomePage.switchToLastTab();
         tenMinutesEmailHomePage.open();
         tenMinutesEmail= tenMinutesEmailHomePage.getTenMinutesEmail();
-       tenMinutesEmailHomePage.switchToFirstTab();
-
+        tenMinutesEmailHomePage.switchToFirstTab();
         calculatorPage.switchToOrderIFrame()
-                .clickEmailEstimateButton();
-        calculatorPage
+                .clickEmailEstimateButton()
                 .setTenMinutesEmail(tenMinutesEmail)
                 .clickSendEmailAddressButton();
         calculatorPage.switchToLastTab();
         readEmailPage = tenMinutesEmailHomePage.clickLetterInList();
         totalEstimateFromLetter = readEmailPage.getTotalEstimateFromLetter();
-
         assertThat(totalEstimateFromGoogleCalculator, containsString(totalEstimateFromLetter));
 
     }
