@@ -3,12 +3,12 @@ package com.epam.ta.model;
 public class Order {
 
     private  String cloudEngine;
-    private  String numberOfInstances;
+    private  Integer numberOfInstances;
     private  String operationSystemType;
     private  String vmClassType;
     private  String instanceType;
     private  String localSsdType;
-    private  String numberOfGpu;
+    private  Integer numberOfGpu;
     private  String gpuType;
     private  String datacenterLocation;
     private  String commitmentTerm;
@@ -20,12 +20,12 @@ public class Order {
                   String instanceType, String numberOfGpu, String gpuType, String localSsdType,
                   String datacenterLocation, String commitmentTerm, String totalEstimatePrice) {
         this.cloudEngine = cloudEngine;
-        this.numberOfInstances = numberOfInstances;
+        this.numberOfInstances = Integer.parseInt(numberOfInstances);
         this.operationSystemType = operationSystemType;
         this.vmClassType = vmClassType;
         this.instanceType = instanceType;
         this.localSsdType = localSsdType;
-        this.numberOfGpu = numberOfGpu;
+        this.numberOfGpu = Integer.parseInt(numberOfGpu);;
         this.gpuType = gpuType;
         this.datacenterLocation = datacenterLocation;
         this.commitmentTerm = commitmentTerm;
@@ -37,7 +37,7 @@ public class Order {
     }
 
     public String getNumberOfInstances() {
-        return numberOfInstances;
+        return String.valueOf(numberOfInstances);
     }
 
     public String getOperationSystemType() {
@@ -56,8 +56,8 @@ public class Order {
         return localSsdType;
     }
 
-    public String getNumberOfGpu() {
-        return numberOfGpu;
+    public String  getNumberOfGpu() {
+        return String.valueOf(numberOfGpu);
     }
 
     public String getGpuType() {
@@ -81,7 +81,7 @@ public class Order {
     }
 
     public void setNumberOfInstances(String numberOfInstances) {
-        this.numberOfInstances = numberOfInstances;
+        this.numberOfInstances = Integer.parseInt(numberOfInstances);
     }
 
     public void setOperationSystemType(String operationSystemType) {
@@ -101,7 +101,7 @@ public class Order {
     }
 
     public void setNumberOfGpu(String numberOfGpu) {
-        this.numberOfGpu = numberOfGpu;
+        this.numberOfGpu = Integer.parseInt(numberOfGpu);
     }
 
     public void setGpuType(String gpuType) {
