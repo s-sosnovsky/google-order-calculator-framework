@@ -266,7 +266,7 @@ public class CalculatorPage extends AbstractPage {
                 setDatacenterLocation(order.getDatacenterLocation());
                 setCommitmentTerm(order.getCommitmentTerm());
                 clickAddToEstimateButton();
-        logger.info("Simple order created and sent for estimation");
+        logger.info("Simple order " + order.toString() + " created and sent for estimation");
 
     }
 }
