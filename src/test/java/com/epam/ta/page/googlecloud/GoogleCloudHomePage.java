@@ -24,7 +24,7 @@ public class GoogleCloudHomePage extends AbstractPage {
 
     @Override
     public GoogleCloudHomePage open() {
-        logger.info("All Products page opened: " + PAGE_URL);
+        logger.info("Google cloud home page opened: " + PAGE_URL);
         driver.navigate().to(PAGE_URL);
         return this;
     }
