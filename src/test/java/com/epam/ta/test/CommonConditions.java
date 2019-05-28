@@ -18,21 +18,23 @@ public class CommonConditions {
 
     protected WebDriver driver;
     protected Order order;
-    protected CalculatorPage calculatorPage;
     protected TenMinutesEmailHomePage tenMinutesEmailHomePage;
     protected TenMinutesReadEmailPage readEmailPage;
+    protected GoogleCloudHomePage googleCloudHomePage;
+    protected AllProductsPage allProductsPage;
+    protected SeePricingPage seePricingPage;
+    protected CalculatorPage calculatorPage;
+
 
     @BeforeClass
     public void setUpDriver(){
         driver = DriverManager.getDriver();
         order = OrderCreator.createComputeEngineOrder();
-        GoogleCloudHomePage googleCloudHomePage= new GoogleCloudHomePage(driver);
+        googleCloudHomePage= new GoogleCloudHomePage(driver);
         googleCloudHomePage.open();
-        AllProductsPage allProductsPage = googleCloudHomePage.clickExploreNewProductsButton();
-        SeePricingPage seePricingPage = allProductsPage.clickSeePricingButton();
+        allProductsPage = googleCloudHomePage.clickExploreNewProductsButton();
+        seePricingPage = allProductsPage.clickSeePricingButton();
         calculatorPage = seePricingPage.clickCalculatorsButton();
-        //calculatorPage = new CalculatorPage(driver);
-        //calculatorPage.open();
         calculatorPage.createSimpleOrder(order);
     }
 

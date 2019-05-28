@@ -14,7 +14,6 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
 
     @Test
     public void sendTotalEstimateEmailNotification() {
-
         totalEstimateFromGoogleCalculator = calculatorPage.getTotalCostText();
         tenMinutesEmailHomePage = new TenMinutesEmailHomePage(driver);
         tenMinutesEmailHomePage.createNewTab();
@@ -30,6 +29,5 @@ public class EmailWithEstimatePriceTest extends CommonConditions {
         readEmailPage = tenMinutesEmailHomePage.clickLetterInList();
         totalEstimateFromLetter = readEmailPage.getTotalEstimateFromLetter();
         assertThat(totalEstimateFromGoogleCalculator, containsString(totalEstimateFromLetter));
-
     }
 }
