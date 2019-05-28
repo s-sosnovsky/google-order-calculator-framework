@@ -7,11 +7,6 @@ import static org.hamcrest.Matchers.containsString;
 public class CreateNewInstanceOrderTests extends CommonConditions{
 
     @Test
-    public void checkDataCenterLocationConformity()  {
-        assertThat(calculatorPage.getDatacenterLocationText(), containsString(order.getDatacenterLocation()));
-    }
-
-    @Test
     public void checkInstanceTypeConformity(){
         assertThat(calculatorPage.getInstanceTypeText(), containsString(order.getInstanceType()));
     }
@@ -24,6 +19,11 @@ public class CreateNewInstanceOrderTests extends CommonConditions{
     @Test
     public void checkLocalSSDConformity(){
         assertThat(calculatorPage.getLocalSsdCapacityText(), containsString(order.getLocalSsdType()));
+    }
+
+    @Test
+    public void checkDataCenterLocationConformity()  {
+        assertThat(calculatorPage.getDatacenterLocationText(), containsString(order.getDatacenterLocation()));
     }
 
     @Test
