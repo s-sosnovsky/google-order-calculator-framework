@@ -185,7 +185,6 @@ public class CalculatorPage extends AbstractPage {
     }
 
     public CalculatorPage clickAddToEstimateButton(){
-
         new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(addToEstimateButton));
         addToEstimateButton.click();
         return this;
