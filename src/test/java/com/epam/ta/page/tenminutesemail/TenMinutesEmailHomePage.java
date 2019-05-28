@@ -30,6 +30,7 @@ public class TenMinutesEmailHomePage extends AbstractPage {
     @Override
     public TenMinutesEmailHomePage open() {
         driver.navigate().to(PAGE_URL);
+        logger.info("Ten minutes email page opened: " + PAGE_URL);
         return this;
     }
 

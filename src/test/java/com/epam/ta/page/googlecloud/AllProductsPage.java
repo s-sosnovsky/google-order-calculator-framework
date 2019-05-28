@@ -22,6 +22,7 @@ public class AllProductsPage extends AbstractPage {
     @Override
     public AllProductsPage open() {
         driver.navigate().to(PAGE_URL);
+        logger.info("All Products page opened: " + PAGE_URL);
         return this;
     }
 
@@ -32,7 +33,7 @@ public class AllProductsPage extends AbstractPage {
     public SeePricingPage clickSeePricingButton(){
         new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.
                 visibilityOf(seePricingButton)).click();
-        logger.info("Trying to open see pricing page");
+        logger.info("See pricing page opened");
         return new SeePricingPage(driver);
     }
 }

@@ -108,6 +108,7 @@ public class CalculatorPage extends AbstractPage {
     
     @Override
     public CalculatorPage open() {
+        logger.info("Calculators page opened: " + PAGE_URL);
         driver.navigate().to(PAGE_URL);
         return this;
     }
