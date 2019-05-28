@@ -14,8 +14,6 @@ public class Order {
     private  String commitmentTerm;
     private  String totalEstimatePrice;
 
-    public Order(){}
-
     public Order( String cloudEngine, String numberOfInstances, String operationSystemType, String vmClassType,
                   String instanceType, String numberOfGpu, String gpuType, String localSsdType,
                   String datacenterLocation, String commitmentTerm, String totalEstimatePrice) {

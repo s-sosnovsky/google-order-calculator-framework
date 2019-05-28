@@ -15,11 +15,13 @@ import java.util.function.Function;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public abstract class AbstractPage {
+
     protected WebDriver driver;
     protected final int WAIT_TIMEOUT_SECONDS = 10;
     protected final int WAIT_LETTER_TIMEOUT_SECONDS = 60;
     protected ArrayList<String> tabs;
     protected Logger logger;
+
     public abstract AbstractPage open();
 
     protected AbstractPage(WebDriver driver){
@@ -37,7 +39,6 @@ public abstract class AbstractPage {
             }
         };
     }
-
 
     protected void scrollToElement(WebElement element){
         Actions actionMove = new Actions(driver);
@@ -57,6 +58,4 @@ public abstract class AbstractPage {
         tabs = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(0));
     }
-
-
 }

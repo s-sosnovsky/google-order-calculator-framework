@@ -16,7 +16,6 @@ public class TenMinutesEmailHomePage extends AbstractPage {
 
     private final static String PAGE_URL = "https://10minutemail.net/";
 
-
     @FindBy (xpath = "//input[@id = 'fe_text']")
     private  WebElement tenMinutesEmailInput;
 

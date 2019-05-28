@@ -15,19 +15,18 @@ public class AllProductsPage extends AbstractPage {
 
     private final static String PAGE_URL = "https://cloud.google.com/products/";
 
-
     @FindBy (xpath = "//div[@class='cloud-button__set']/a[2]")
     private WebElement seePricingButton;
+
+    public AllProductsPage(WebDriver driver){
+        super(driver);
+    }
 
     @Override
     public AllProductsPage open() {
         driver.navigate().to(PAGE_URL);
         logger.info("All Products page opened: " + PAGE_URL);
         return this;
-    }
-
-    public AllProductsPage(WebDriver driver){
-        super(driver);
     }
 
     public SeePricingPage clickSeePricingButton(){

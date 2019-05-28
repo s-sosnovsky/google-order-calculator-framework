@@ -101,20 +101,20 @@ public class CalculatorPage extends AbstractPage {
     private WebElement emailEstimateButton;
 
     @FindBy (xpath = "//form[@name = 'emailForm']/descendant::input[@type ='email']")
-    WebElement emailValueField;
+    private WebElement emailValueField;
 
     @FindBy (xpath = "//button[@aria-label='Send Email']")
-    WebElement sendEmailButton;
-    
+    private WebElement sendEmailButton;
+
+    public CalculatorPage(WebDriver driver) {
+        super(driver);
+    }
+
     @Override
     public CalculatorPage open() {
         logger.info("Calculators page opened: " + PAGE_URL);
         driver.navigate().to(PAGE_URL);
         return this;
-    }
-
-    public CalculatorPage(WebDriver driver) {
-        super(driver);
     }
 
     public CalculatorPage switchToOrderIFrame() {
@@ -267,7 +267,6 @@ public class CalculatorPage extends AbstractPage {
                 setCommitmentTerm(order.getCommitmentTerm());
                 clickAddToEstimateButton();
         logger.info("Simple order " + order.toString() + " created and sent for estimation");
-
     }
 }
 

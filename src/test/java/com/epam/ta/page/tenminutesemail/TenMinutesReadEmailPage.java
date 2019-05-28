@@ -10,6 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TenMinutesReadEmailPage extends AbstractPage {
 
+    @FindBy(xpath = "//table[@class='quote']//td[4]")
+    private WebElement infoInLetter;
+
     public TenMinutesReadEmailPage(WebDriver driver) {
         super(driver);
     }
@@ -18,9 +21,6 @@ public class TenMinutesReadEmailPage extends AbstractPage {
     public AbstractPage open() {
         return null;
     }
-
-    @FindBy(xpath = "//table[@class='quote']//td[4]")
-    private WebElement infoInLetter;
 
     public String getTotalEstimateFromLetter(){
 
