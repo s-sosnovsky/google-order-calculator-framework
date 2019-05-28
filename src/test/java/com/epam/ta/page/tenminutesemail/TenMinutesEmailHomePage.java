@@ -44,6 +44,7 @@ public class TenMinutesEmailHomePage extends AbstractPage {
     public TenMinutesReadEmailPage clickLetterInList() {
         new WebDriverWait(driver, WAIT_LETTER_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(googlEmailLink))
                 .click();
+        scrollToElement(googlEmailLink);
         logger.info("TenMinutesReadEmailPage opened");
         return new TenMinutesReadEmailPage(driver);
     }
