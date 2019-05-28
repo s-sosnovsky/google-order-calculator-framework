@@ -34,14 +34,14 @@ public class TenMinutesEmailHomePage extends AbstractPage {
     }
 
     public String getTenMinutesEmail(){
-        String email = new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(tenMinutesEmailInput))
+        String email = new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(tenMinutesEmailInput))
                 .getAttribute("value");
         logger.info("Email generated: " + email);
         return email;
     }
 
     public TenMinutesReadEmailPage clickLetterInList() {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS*6).until(ExpectedConditions.visibilityOf(googlEmailLink))
+        new WebDriverWait(driver, WAIT_LETTER_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(googlEmailLink))
                 .click();
         logger.info("TenMinutesReadEmailPage opened");
         return new TenMinutesReadEmailPage(driver);

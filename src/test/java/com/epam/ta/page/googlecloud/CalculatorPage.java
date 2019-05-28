@@ -246,7 +246,7 @@ public class CalculatorPage extends AbstractPage {
     }
 
     public CalculatorPage clickSendEmailAddressButton(){
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS*2).until(ExpectedConditions.visibilityOf(sendEmailButton));
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(sendEmailButton));
         sendEmailButton.click();
         logger.info("Email with estimated price sent");
         return this;

@@ -28,7 +28,7 @@ public class SeePricingPage extends AbstractPage {
         return this;
     }
 
-    public CalculatorPage clickCaltulatorsButton(){
+    public CalculatorPage clickCalculatorsButton(){
         new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(calculatorsButton)).click();
         logger.info("Calculator page opened");
         return new CalculatorPage(driver);
