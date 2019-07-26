@@ -57,4 +57,12 @@ public abstract class AbstractPage {
         tabs = new ArrayList(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(0));
     }
+
+    public void highlightElement(WebElement element){
+        String bg = element.getCssValue("backgroundColor");
+        JavascriptExecutor js = ((JavascriptExecutor) driver);
+        js.executeScript("arguments[0].style.backgroundColor = '" + "yellow" + "'", element);
+        js.executeScript("arguments[0].style.backgroundColor = '" + bg + "'", element);
+    }
+
 }

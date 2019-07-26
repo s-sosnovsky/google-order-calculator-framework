@@ -1,15 +1,13 @@
 package com.epam.ta.page.googlecloud;
 
+import com.epam.ta.model.Order;
 import com.epam.ta.page.AbstractPage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.epam.ta.model.Order;
 
 import java.util.List;
 
@@ -203,6 +201,7 @@ public class CalculatorPage extends AbstractPage {
         new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOfAllElements(dropDownOptions));
         for (WebElement option : dropDownOptions) {
             if (option.getText().contains(text)) {
+                highlightElement(option);
                 option.click();
                  break;
             }

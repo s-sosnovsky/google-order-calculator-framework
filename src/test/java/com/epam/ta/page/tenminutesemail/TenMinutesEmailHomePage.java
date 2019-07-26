@@ -6,10 +6,12 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.lang.reflect.AccessibleObject;
 import java.util.ArrayList;
 
 public class TenMinutesEmailHomePage extends AbstractPage {
@@ -41,9 +43,9 @@ public class TenMinutesEmailHomePage extends AbstractPage {
     }
 
     public TenMinutesReadEmailPage clickLetterInList() {
-        new WebDriverWait(driver, WAIT_LETTER_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(googlEmailLink))
-                .click();
+        new WebDriverWait(driver, WAIT_LETTER_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(googlEmailLink));
         scrollToElement(googlEmailLink);
+        new Actions(driver).click(googlEmailLink).build().perform();
         logger.info("TenMinutesReadEmailPage opened");
         return new TenMinutesReadEmailPage(driver);
     }
