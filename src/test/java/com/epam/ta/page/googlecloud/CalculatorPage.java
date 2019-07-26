@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,25 +20,25 @@ public class CalculatorPage extends AbstractPage {
     @FindBy(id = "idIframe")
     private WebElement orderFormIframe;
 
-    @FindBy(xpath = "//input[@id='input_51']")
-    private WebElement numberOfInstances;
-
-    @FindBy(xpath = "//md-select[@id='select_63']")
-    private WebElement operationSystemTypeDropDown;
-
-    @FindBy(xpath = "//div[@id='select_container_64']/md-select-menu/md-content/md-option")
-    private List<WebElement> operationSystemOptionsList;
-
-    @FindBy (xpath = "//md-select[@id='select_67']")
-    private WebElement vmClassDropDown;
-
-    @FindBy(xpath = "//div[@id='select_container_68']/md-select-menu/md-content/md-option")
-    private List<WebElement> vmClassOptionsList;
-
     @FindBy(xpath = "//div[@ng-class='{estimated: listingCtrl.CartData[tab.estimatedLabel]}']")
     private List<WebElement> sectionsEnginesList;
 
-    @FindBy (xpath ="//md-select[@id='select_74']")
+    @FindBy(xpath = "//input[@id='input_52']")
+    private WebElement numberOfInstances;
+
+    @FindBy(xpath = "//md-select[@id='select_64']")
+    private WebElement operationSystemTypeDropDown;
+
+    @FindBy(xpath = "//div[@id='select_container_65']/md-select-menu/md-content/md-option")
+    private List<WebElement> operationSystemOptionsList;
+
+    @FindBy (xpath = "//md-select[@id='select_68']")
+    private WebElement vmClassDropDown;
+
+    @FindBy(xpath = "//div[@id='select_container_69']/md-select-menu/md-content/md-option")
+    private List<WebElement> vmClassOptionsList;
+
+    @FindBy (xpath ="//md-select[@id='select_75']")
     private WebElement instanceTypeDropDown;
 
     @FindBy(xpath = "//md-optgroup[@label='standard']/md-option")
@@ -46,34 +47,34 @@ public class CalculatorPage extends AbstractPage {
     @FindBy(xpath = "//md-checkbox[contains(@ng-model,'addGPUs')]")
     private WebElement addGpuCheckbox;
 
-    @FindBy(xpath = "//md-select[@id='select_335']")
+    @FindBy(xpath = "//md-select[@id='select_336']")
     private WebElement numberOfGpuDropDown;
 
-    @FindBy(xpath = "//div[@id='select_container_336']/md-select-menu/md-content/md-option")
+    @FindBy(xpath = "//div[@id='select_container_337']/md-select-menu/md-content/md-option")
     private List<WebElement> numberOfGpuOptionsList;
 
-    @FindBy(xpath = "//md-select[@id='select_337']")
+    @FindBy(xpath = "//md-select[@id='select_338']")
     private WebElement gpuTypeDropDown;
 
-    @FindBy(xpath = "//div[@id='select_container_338']/md-select-menu/md-content/md-option")
+    @FindBy(xpath = "//div[@id='select_container_339']/md-select-menu/md-content/md-option")
     private List<WebElement> gpuTypeOptionsList;
 
-    @FindBy(xpath = "//md-select[@id='select_76']")
+    @FindBy(xpath = "//md-select[@id='select_77']")
     private WebElement localSsdTypeDropDown;
 
-    @FindBy(xpath = "//div[@id='select_container_77']/md-select-menu/md-content/md-option")
+    @FindBy(xpath = "//div[@id='select_container_78']/md-select-menu/md-content/md-option")
     private List<WebElement> localSsdOptionsList;
 
-    @FindBy(xpath = "//md-select[@id='select_78']")
+    @FindBy(xpath = "//md-select[@id='select_79']")
     private WebElement datacenterLocationDropDown;
 
-    @FindBy(xpath = "//div[@id='select_container_79']/md-select-menu/md-content/md-option")
+    @FindBy(xpath = "//div[@id='select_container_80']/md-select-menu/md-content/md-option")
     private List<WebElement> datacenterLocationOptionsList;
 
-    @FindBy(xpath = "//md-select[@id='select_83']")
+    @FindBy(xpath = "//md-select[@id='select_84']")
     private WebElement committmentUsageDropDown;
 
-    @FindBy(xpath = "//div[@id='select_container_84']/md-select-menu/md-content/md-option")
+    @FindBy(xpath = "//div[@id='select_container_85']/md-select-menu/md-content/md-option")
     private List<WebElement> commitmentUsageOptionsList;
 
     @FindBy(xpath = "//button[@aria-label='Add to Estimate'][1]")
@@ -198,7 +199,6 @@ public class CalculatorPage extends AbstractPage {
     }
 
     private void dropDownWaitForElementAndChooseOptionText(WebElement dropDown, List<WebElement> dropDownOptions, String text){
-        scrollToElement(dropDown);
         new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(dropDown)).click();
         new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOfAllElements(dropDownOptions));
         for (WebElement option : dropDownOptions) {
@@ -238,8 +238,10 @@ public class CalculatorPage extends AbstractPage {
                 .getText();
     }
 
-  public CalculatorPage setTenMinutesEmail(String email){
+    public CalculatorPage setTenMinutesEmail(String email){
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(emailValueField));
+        emailValueField.clear();
+        emailValueField.click();
         emailValueField.sendKeys(email);
         logger.info("Set 10 minutes email: " + email);
         return this;
@@ -251,6 +253,7 @@ public class CalculatorPage extends AbstractPage {
         logger.info("Email with estimated price sent");
         return this;
     }
+
     public void createSimpleOrder(Order order)  {
                 switchToOrderIFrame();
                 setOrderCloudEngine(order.getCloudEngine());

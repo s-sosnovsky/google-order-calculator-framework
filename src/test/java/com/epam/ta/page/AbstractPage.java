@@ -18,7 +18,7 @@ public abstract class AbstractPage {
 
     protected WebDriver driver;
     protected final int WAIT_TIMEOUT_SECONDS = 10;
-    protected final int WAIT_LETTER_TIMEOUT_SECONDS = 60;
+    protected final int WAIT_LETTER_TIMEOUT_SECONDS = 120;
     protected ArrayList<String> tabs;
     protected Logger logger;
 
@@ -41,8 +41,7 @@ public abstract class AbstractPage {
     }
 
     protected void scrollToElement(WebElement element){
-        Actions actionMove = new Actions(driver);
-        actionMove.moveToElement(element).build().perform();
+        new Actions(driver).moveToElement(element).build().perform();
     }
 
     public void  createNewTab() {
