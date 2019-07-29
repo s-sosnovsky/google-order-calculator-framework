@@ -23,11 +23,11 @@ public class TenMinutesReadEmailPage extends AbstractPage {
     }
 
     public String getTotalEstimateFromLetter(){
-        String totalEsrimateFromLetter = new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS)
+        String totalEstimateFromLetter = new WebDriverWait(driver,WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.visibilityOf(infoInLetter))
                 .getText();
-        logger.info("Letter received and opened with price: " + totalEsrimateFromLetter);
-        return totalEsrimateFromLetter;
+        logger.info("Letter received and opened with price: " + totalEstimateFromLetter);
+        return totalEstimateFromLetter;
     }
 }
 
